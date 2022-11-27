@@ -19,13 +19,16 @@ class CommunityViewController: UIViewController {
     
 
 }
-extension CommunityViewController:UICollectionViewDataSource {
+extension CommunityViewController:UICollectionViewDataSource{
+   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "communityCell", for: indexPath)
+        let communityImg = cell.viewWithTag(1) as? UIImageView
+        communityImg?.image = UIImage(named: "line1com")
         
         let communityName = cell.viewWithTag(12) as? UILabel
         
@@ -38,12 +41,16 @@ extension CommunityViewController:UICollectionViewDataSource {
 }
 extension CommunityViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
+        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSpace:CGFloat = 2
-        let width = (collectionView.frame.width - 5 - itemSpace) / 2
+        let itemSpace:CGFloat = 3
+        let width: CGFloat = (UIScreen.main.bounds.width - itemSpace * 2)/3
         return CGSize(width: width, height: width * 1.2)
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    
 }

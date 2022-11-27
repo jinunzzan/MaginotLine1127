@@ -24,6 +24,7 @@ class SelectStationTableViewController: UITableViewController {
 
         tableView.rowHeight = 60
         searchBar.delegate = self
+        // 키보드 자동 올리기
         self.searchBar.becomeFirstResponder()
        
         // Uncomment the following line to preserve selection between presentations
@@ -32,7 +33,9 @@ class SelectStationTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchBar.resignFirstResponder()
+    }
     @IBAction func selectStart(_ sender: UIButton) {
         let index = sender.tag
         let startStation = self.stations[index]

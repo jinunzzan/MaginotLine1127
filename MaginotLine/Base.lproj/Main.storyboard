@@ -60,11 +60,11 @@
             </objects>
             <point key="canvasLocation" x="189" y="228"/>
         </scene>
-        <!--Item-->
+        <!--커뮤니티-->
         <scene sceneID="oxn-KX-DhH">
             <objects>
                 <navigationController id="MEz-M4-i58" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="E5m-cW-3dS"/>
+                    <tabBarItem key="tabBarItem" title="커뮤니티" image="person.2.wave.2" catalog="system" id="E5m-cW-3dS"/>
                     <navigationItem key="navigationItem" id="VIj-Go-a0A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PuN-6f-bWP">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -89,8 +89,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nLG-Rg-39t">
                                 <rect key="frame" x="10" y="133" width="373" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zuh-KL-2i0">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zuh-KL-2i0">
                                     <size key="itemSize" width="234" height="231"/>
+                                    <size key="estimatedItemSize" width="234" height="231"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -103,7 +104,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="234" height="231"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qki-NL-hZ7">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qki-NL-hZ7">
                                                     <rect key="frame" x="0.0" y="8" width="226" height="161"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1호선" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm3-7Y-PWe">
@@ -167,7 +168,7 @@
         <!--Community Post View Controller-->
         <scene sceneID="WvQ-jt-Nu1">
             <objects>
-                <viewController id="4nz-bB-oEk" customClass="CommunityPostViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="4nz-bB-oEk" customClass="CommunityPostViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rDP-Zw-c3s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,7 +313,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="글쓰기" id="QA1-K7-Kge">
-                                        <barButtonItem key="leftBarButtonItem" title="취소" id="Fyi-vQ-HQ8"/>
+                                        <barButtonItem key="leftBarButtonItem" title="취소" id="Fyi-vQ-HQ8">
+                                            <connections>
+                                                <action selector="cancelBtn:" destination="yle-7N-jBW" id="p2L-bZ-vDc"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="등록" id="Zfx-r4-i3w"/>
                                     </navigationItem>
                                 </items>
@@ -912,6 +917,7 @@
         <image name="line1com" width="500" height="400"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.2.wave.2" catalog="system" width="128" height="83"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">

@@ -12,15 +12,18 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var placeHolderLabel: UILabel!
     
-    let textViewPlaceHolder = "지각러님의 이야기를 들려주세요."
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         textView.textContainer.maximumNumberOfLines = 0
         textView.textContainer.lineFragmentPadding = 0
         
+        self.textView.becomeFirstResponder()
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    // textViewPlaceholder
     func textViewDidChange(_ textView:UITextView){
             if textView.text == "" {
                 placeHolderLabel.isHidden = false
@@ -28,6 +31,10 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
                 placeHolderLabel.isHidden = true
             }
         }
+    
+    @IBAction func cancelBtn(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     /*
      // MARK: - Navigation
