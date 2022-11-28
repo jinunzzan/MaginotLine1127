@@ -23,6 +23,7 @@
 		593F7EAD292B7C8500BA4BB9 /* SubwayPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F7EAC292B7C8500BA4BB9 /* SubwayPathViewController.swift */; };
 		593F7EF4292F8FD900BA4BB9 /* LoginModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F7EF3292F8FD900BA4BB9 /* LoginModalViewController.swift */; };
 		593F7F162933773F00BA4BB9 /* CommunityPostWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593F7F152933773F00BA4BB9 /* CommunityPostWriteViewController.swift */; };
+		594C75C72934656000FA292D /* IdPwInsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75C62934656000FA292D /* IdPwInsertViewController.swift */; };
 		B80166822930C3E0008781F8 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166812930C3E0008781F8 /* CommunityViewController.swift */; };
 		B80166842930CC8A008781F8 /* NewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166832930CC8A008781F8 /* NewMemberViewController.swift */; };
 		B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166852930CCB6008781F8 /* MemberJoinViewController.swift */; };
@@ -47,6 +48,7 @@
 		593F7EAC292B7C8500BA4BB9 /* SubwayPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayPathViewController.swift; sourceTree = "<group>"; };
 		593F7EF3292F8FD900BA4BB9 /* LoginModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModalViewController.swift; sourceTree = "<group>"; };
 		593F7F152933773F00BA4BB9 /* CommunityPostWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommunityPostWriteViewController.swift; path = MaginotLine/ViewControllers/CommunityPostWriteViewController.swift; sourceTree = SOURCE_ROOT; };
+		594C75C62934656000FA292D /* IdPwInsertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdPwInsertViewController.swift; sourceTree = "<group>"; };
 		B80166812930C3E0008781F8 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B80166832930CC8A008781F8 /* NewMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberViewController.swift; sourceTree = "<group>"; };
 		B80166852930CCB6008781F8 /* MemberJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberJoinViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				593F7EA8292B66B400BA4BB9 /* MaginotListTableViewController.swift */,
 				593F7EAC292B7C8500BA4BB9 /* SubwayPathViewController.swift */,
 				593F7EF3292F8FD900BA4BB9 /* LoginModalViewController.swift */,
+				594C75C62934656000FA292D /* IdPwInsertViewController.swift */,
 				B80166812930C3E0008781F8 /* CommunityViewController.swift */,
 				B84D633B2931F4DA0001FC69 /* CommunityPostViewController.swift */,
 				B80166832930CC8A008781F8 /* NewMemberViewController.swift */,
@@ -212,6 +215,7 @@
 				B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */,
 				593F7E9929275E3900BA4BB9 /* TimeTable.swift in Sources */,
 				59305772291CB3B00082EEF8 /* SceneDelegate.swift in Sources */,
+				594C75C72934656000FA292D /* IdPwInsertViewController.swift in Sources */,
 				B80166822930C3E0008781F8 /* CommunityViewController.swift in Sources */,
 				593F7E9B292766EB00BA4BB9 /* SelectStationTableViewController.swift in Sources */,
 				593F7EAB292B7C4200BA4BB9 /* SubwayPath.swift in Sources */,

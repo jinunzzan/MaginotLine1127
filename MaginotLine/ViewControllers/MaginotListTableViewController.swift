@@ -24,7 +24,7 @@ class MaginotListTableViewController: UITableViewController {
     var strToday:String = ""
     var strStartFrCode = ""
     var strEndFrCode = ""
-    
+    var subWayLeadTimeSeconds:Double = 0
     //출발시간+ 소요시간
     var strArriveTime = ""
     // strArriveTime이 들어갈 배열
@@ -142,17 +142,20 @@ class MaginotListTableViewController: UITableViewController {
                 }
             }
             
-            var subWayLeadTimeSeconds = "\(subWayLeadTime * 60)"
+            subWayLeadTimeSeconds = subWayLeadTime * 60
             formatter.dateFormat = "yyyy-MM-dd"
             var patchDate = formatter.string(from: Date())
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             var patchDatePlus = "\(patchDate) \(strMagino)"
             print("이건 오늘날짜 + 마지노선 타임 입니다\(patchDatePlus)")
             
+           
             
             print("//////////////////////////////")
             print(self.timeTable)
             print("//////////////////////////////")
+            
+            
             
         }
         
@@ -217,8 +220,22 @@ class MaginotListTableViewController: UITableViewController {
         let lblEnd = cell.viewWithTag(3) as? UILabel
         lblEnd?.text = self.route?.globalEndName
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let today = formatter.string(from: Date())
+        
+        let leftTime = "\(today) \(time.leftTime)"
+        
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateLeftTime = formatter.date(from: leftTime)
+        guard let dateLeftTime1 = dateLeftTime?.addingTimeInterval(subWayLeadTimeSeconds)
+        else {fatalError()}
+        
+        formatter.dateFormat = "HH:mm:ss"
+        
+        
         let lblEndTime = cell.viewWithTag(4) as? UILabel
-//        lblEndTime?.text = timeArray[indexPath.row]
+        lblEndTime?.text = formatter.string(from: dateLeftTime1)
         
         return cell
     }
