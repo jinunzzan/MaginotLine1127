@@ -13,6 +13,7 @@ class LoginModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //half modalView
         if let sheetPresentationController = sheetPresentationController {
                     sheetPresentationController.detents = [.medium()]
                 }
