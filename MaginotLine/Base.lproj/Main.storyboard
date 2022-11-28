@@ -59,18 +59,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="즐겨찾기" id="k3R-7r-PjL">
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="5mk-oh-ByA"/>
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="5mk-oh-ByA">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ft9-DF-n0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1236" y="227"/>
         </scene>
-        <!--Item-->
+        <!--즐겨찾기-->
         <scene sceneID="V6d-xO-bzO">
             <objects>
                 <navigationController id="IAQ-gg-pxz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="star" catalog="system" id="YLy-hk-4vF"/>
+                    <tabBarItem key="tabBarItem" title="즐겨찾기" image="star" catalog="system" id="YLy-hk-4vF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NGm-a7-wQz">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -174,7 +176,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3wz-em-VMn">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person" catalog="system" id="okd-Ce-SVk">
-                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="Kix-pb-0zX" kind="presentation" id="vdY-GY-aI0"/>
                             </connections>
@@ -313,7 +315,7 @@
                             <constraint firstItem="cEQ-ZX-GJ3" firstAttribute="trailing" secondItem="qkU-Fi-3N5" secondAttribute="trailing" id="wW6-zj-fVD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="S1N-kM-6Jh"/>
+                    <navigationItem key="navigationItem" style="editor" id="S1N-kM-6Jh"/>
                     <connections>
                         <outlet property="collectionView" destination="H7v-LD-dmR" id="S2C-pB-qaC"/>
                         <outlet property="fixHeaderHeight" destination="Hyy-fM-ypD" id="Eyg-X6-TQr"/>
@@ -331,29 +333,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-wh-Pkg">
-                                <rect key="frame" x="-1" y="0.0" width="391" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2n3-wh-Pkg">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
                                     <navigationItem title="글쓰기" id="QA1-K7-Kge">
                                         <barButtonItem key="leftBarButtonItem" title="취소" id="Fyi-vQ-HQ8">
+                                            <color key="tintColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
                                                 <action selector="cancelBtn:" destination="yle-7N-jBW" id="p2L-bZ-vDc"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="등록" id="Zfx-r4-i3w"/>
+                                        <barButtonItem key="rightBarButtonItem" title="등록" id="Zfx-r4-i3w">
+                                            <color key="tintColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pbi-27-2aX">
-                                <rect key="frame" x="16" y="70" width="361" height="704"/>
+                                <rect key="frame" x="16" y="109" width="361" height="665"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지각러님의 이야기를 들려주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyF-CM-ibE">
-                                <rect key="frame" x="21" y="79" width="178" height="17"/>
+                                <rect key="frame" x="21" y="120" width="178" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
@@ -362,13 +366,17 @@
                         <viewLayoutGuide key="safeArea" id="Agx-q3-j7y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pbi-27-2aX" firstAttribute="top" secondItem="Agx-q3-j7y" secondAttribute="top" constant="11" id="8Wg-zD-XmF"/>
+                            <constraint firstItem="2n3-wh-Pkg" firstAttribute="top" secondItem="Agx-q3-j7y" secondAttribute="top" id="1nN-2H-oG7"/>
                             <constraint firstItem="Agx-q3-j7y" firstAttribute="bottom" secondItem="pbi-27-2aX" secondAttribute="bottom" constant="44" id="DuA-GR-Nlg"/>
+                            <constraint firstItem="2n3-wh-Pkg" firstAttribute="top" secondItem="Agx-q3-j7y" secondAttribute="top" id="I1X-av-Bil"/>
                             <constraint firstItem="pbi-27-2aX" firstAttribute="leading" secondItem="Agx-q3-j7y" secondAttribute="leading" constant="16" id="W38-Ol-sFu"/>
+                            <constraint firstItem="wyF-CM-ibE" firstAttribute="top" secondItem="2n3-wh-Pkg" secondAttribute="bottom" constant="17" id="ZOw-L6-Kqo"/>
+                            <constraint firstItem="2n3-wh-Pkg" firstAttribute="trailing" secondItem="Agx-q3-j7y" secondAttribute="trailing" id="ZjO-ob-djr"/>
                             <constraint firstItem="wyF-CM-ibE" firstAttribute="leading" secondItem="Agx-q3-j7y" secondAttribute="leading" constant="21" id="iYb-Jb-Ucg"/>
+                            <constraint firstItem="2n3-wh-Pkg" firstAttribute="leading" secondItem="Agx-q3-j7y" secondAttribute="leading" id="tqa-id-dab"/>
+                            <constraint firstItem="pbi-27-2aX" firstAttribute="top" secondItem="2n3-wh-Pkg" secondAttribute="bottom" constant="6" id="vLO-CI-pe5"/>
                             <constraint firstItem="Agx-q3-j7y" firstAttribute="trailing" secondItem="pbi-27-2aX" secondAttribute="trailing" constant="16" id="wTS-oy-9oc"/>
                             <constraint firstItem="Agx-q3-j7y" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wyF-CM-ibE" secondAttribute="trailing" symbolic="YES" id="wY9-d5-irl"/>
-                            <constraint firstItem="wyF-CM-ibE" firstAttribute="top" secondItem="Agx-q3-j7y" secondAttribute="top" constant="20" id="xh7-kZ-IXw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -406,7 +414,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDe-A2-xj7">
                                         <rect key="frame" x="0.0" y="116" width="313" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="로그인"/>
@@ -475,7 +483,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="로그인" cornerStyle="capsule" titleAlignment="leading">
                                             <backgroundConfiguration key="background" strokeWidth="0.0">
-                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="strokeColor" systemColor="labelColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="21"/>
@@ -525,7 +533,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원가입" cornerStyle="capsule" titleAlignment="leading">
                                     <backgroundConfiguration key="background" strokeWidth="0.0">
-                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" systemColor="labelColor"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="21"/>
@@ -614,7 +622,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="회원가입" cornerStyle="capsule" titleAlignment="leading">
                                             <backgroundConfiguration key="background" strokeWidth="0.0">
-                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="strokeColor" systemColor="labelColor"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="21"/>
@@ -724,11 +732,11 @@
             </objects>
             <point key="canvasLocation" x="3791.3043478260875" y="1392.8571428571429"/>
         </scene>
-        <!--Item-->
+        <!--검색-->
         <scene sceneID="bGw-5T-0MR">
             <objects>
                 <navigationController id="TtG-w0-Cce" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="Kwh-Nh-zRm"/>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="Kwh-Nh-zRm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kgd-nN-foV">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -758,13 +766,13 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="srj-Kt-ngD"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="출발역을 선택하세요" cornerStyle="capsule" titleAlignment="leading">
-                                            <backgroundConfiguration key="background" strokeWidth="2">
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="strokeColor" systemColor="labelColor"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="출발역을 선택하세요" cornerStyle="large" titleAlignment="leading">
+                                            <backgroundConfiguration key="background" strokeWidth="1" strokeOutset="0.0">
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <color key="strokeColor" systemColor="systemGray5Color"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="mjx-DJ-gAJ" kind="show" id="iza-7K-Qpq"/>
@@ -773,13 +781,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prb-8n-wHF">
                                         <rect key="frame" x="0.0" y="65" width="353" height="50"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=" 도착역을 선택하세요" cornerStyle="capsule" titleAlignment="leading">
-                                            <backgroundConfiguration key="background" strokeWidth="2">
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="strokeColor" systemColor="labelColor"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" 도착역을 선택하세요" cornerStyle="large" titleAlignment="leading">
+                                            <backgroundConfiguration key="background" strokeWidth="1">
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <color key="strokeColor" systemColor="systemGray5Color"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="mjx-DJ-gAJ" kind="show" id="lJE-ZF-ZAE"/>
@@ -788,13 +796,13 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXk-T5-hm4">
                                         <rect key="frame" x="0.0" y="130" width="353" height="50"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=":" cornerStyle="capsule">
-                                            <backgroundConfiguration key="background" strokeWidth="2">
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="strokeColor" systemColor="labelColor"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=":" cornerStyle="large">
+                                            <backgroundConfiguration key="background" strokeWidth="1">
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <color key="strokeColor" systemColor="systemGray5Color"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="19"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="timePicker:" destination="SDh-0Q-cnk" eventType="touchUpInside" id="j9p-Xi-mcO"/>
@@ -803,9 +811,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CK2-J4-c9J">
                                         <rect key="frame" x="0.0" y="195" width="353" height="50"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="검색" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="plain" title="검색" cornerStyle="large">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
@@ -819,18 +827,18 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-0I-Bna">
                                 <rect key="frame" x="40" y="128" width="174.66666666666666" height="45.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="38"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="지각러를 탈출해 볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnu-WD-B63">
                                 <rect key="frame" x="40" y="183.66666666666666" width="240" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N6h-jA-zYG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TJP-3U-be8" firstAttribute="leading" secondItem="N6h-jA-zYG" secondAttribute="leading" constant="20" id="Eks-j1-epo"/>
                             <constraint firstItem="N6h-jA-zYG" firstAttribute="trailing" secondItem="TJP-3U-be8" secondAttribute="trailing" constant="20" id="Fyw-pW-V02"/>
@@ -874,25 +882,25 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시청역" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOo-RW-pEX">
                                             <rect key="frame" x="20" y="25" width="42" height="19.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강남역" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4j6-ga-LMC">
                                             <rect key="frame" x="331" y="25" width="42" height="19.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00pm(출발)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJT-95-IGR">
                                             <rect key="frame" x="20" y="48.666666666666664" width="152" height="26.333333333333336"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                            <color key="textColor" systemColor="systemPinkColor"/>
+                                            <color key="textColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00pm (도착)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yZ-Eg-vz6">
                                             <rect key="frame" x="216" y="48.666666666666664" width="157" height="26.333333333333336"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -919,8 +927,10 @@
                             <outlet property="delegate" destination="mbQ-eF-sqR" id="VeJ-iW-pXF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="마지노선 목록" id="F6s-aa-Waf">
-                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="mRg-WG-scB"/>
+                    <navigationItem key="navigationItem" title="마지노선 목록" style="editor" id="F6s-aa-Waf">
+                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="mRg-WG-scB">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHe-gY-bhl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -960,8 +970,10 @@
                         <viewLayoutGuide key="safeArea" id="wdU-qh-0gN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="q9X-tu-79Z">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="stopwatch" catalog="system" id="aPz-2z-gWc"/>
+                    <navigationItem key="navigationItem" style="editor" id="q9X-tu-79Z">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="stopwatch" catalog="system" id="aPz-2z-gWc">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQD-5v-JzZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -972,7 +984,7 @@
         <scene sceneID="Dz7-IN-jxr">
             <objects>
                 <tableViewController storyboardIdentifier="SelectStationViewController" id="mjx-DJ-gAJ" customClass="SelectStationTableViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="7XL-cw-dli">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="7XL-cw-dli">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -986,7 +998,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="DOE-mg-kvI">
-                                <rect key="frame" x="0.0" y="94" width="393" height="60"/>
+                                <rect key="frame" x="0.0" y="99.333332061767578" width="393" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DOE-mg-kvI" id="hoI-EW-ZyH">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
@@ -1000,29 +1012,41 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목동역" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tC-H3-Wuk">
                                             <rect key="frame" x="64" y="8" width="49.333333333333343" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                            <color key="textColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-C3-hZN">
-                                            <rect key="frame" x="218" y="14" width="69" height="35"/>
+                                            <rect key="frame" x="236" y="14" width="60" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="Hu5-qG-L8S"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="gray" title="출발역"/>
+                                            <buttonConfiguration key="configuration" style="gray" title="출발">
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="baseBackgroundColor" red="0.29427021289999999" green="0.30320289239999998" blue="0.33898125579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectStart:" destination="mjx-DJ-gAJ" eventType="touchUpInside" id="3Dc-6x-A0C"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nq-9A-7O8">
-                                            <rect key="frame" x="304" y="14" width="69" height="35"/>
+                                            <rect key="frame" x="313" y="14" width="60" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="aGG-Qf-FJf"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="gray" title="도착역"/>
+                                            <buttonConfiguration key="configuration" style="gray" title="도착">
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="baseBackgroundColor" red="0.29427021289999999" green="0.30320289239999998" blue="0.33898125579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectEnd:" destination="mjx-DJ-gAJ" eventType="touchUpInside" id="hQI-S4-kXM"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN2-Xf-4kS">
-                                            <rect key="frame" x="64" y="39" width="35.666666666666657" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <rect key="frame" x="64" y="32" width="36.666666666666657" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1034,7 +1058,6 @@
                                         <constraint firstItem="2tC-H3-Wuk" firstAttribute="leading" secondItem="dN2-Xf-4kS" secondAttribute="leading" id="DzR-3e-g4B"/>
                                         <constraint firstItem="dN2-Xf-4kS" firstAttribute="top" secondItem="2tC-H3-Wuk" secondAttribute="bottom" constant="1" id="IoH-pV-5C8"/>
                                         <constraint firstItem="2tC-H3-Wuk" firstAttribute="leading" secondItem="GKC-1j-gEe" secondAttribute="trailing" constant="14" id="MWx-h9-KEi"/>
-                                        <constraint firstItem="dN2-Xf-4kS" firstAttribute="leading" secondItem="GKC-1j-gEe" secondAttribute="trailing" constant="14" id="QVx-Ni-I5v"/>
                                         <constraint firstItem="2tC-H3-Wuk" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="top" constant="8" id="SQJ-Vh-q8U"/>
                                         <constraint firstItem="GKC-1j-gEe" firstAttribute="leading" secondItem="hoI-EW-ZyH" secondAttribute="leadingMargin" id="UKq-g8-jdA"/>
                                         <constraint firstItem="aQm-C3-hZN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dN2-Xf-4kS" secondAttribute="trailing" constant="8" symbolic="YES" id="ZWq-8E-Qt0"/>
@@ -1043,17 +1066,20 @@
                                         <constraint firstItem="2Nq-9A-7O8" firstAttribute="leading" secondItem="aQm-C3-hZN" secondAttribute="trailing" constant="17" id="gSG-dT-kkH"/>
                                         <constraint firstItem="aQm-C3-hZN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2tC-H3-Wuk" secondAttribute="trailing" constant="8" symbolic="YES" id="jrc-iG-6RF"/>
                                         <constraint firstItem="2tC-H3-Wuk" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="-3" id="nrq-gB-hcX"/>
+                                        <constraint firstItem="dN2-Xf-4kS" firstAttribute="leading" secondItem="GKC-1j-gEe" secondAttribute="trailing" constant="14" id="uHU-Lz-mt6"/>
                                         <constraint firstItem="2Nq-9A-7O8" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="3" id="vkd-OT-neB"/>
+                                        <constraint firstItem="dN2-Xf-4kS" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="21" id="z6h-q8-UCd"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="mjx-DJ-gAJ" id="bbp-mc-UN8"/>
                             <outlet property="delegate" destination="mjx-DJ-gAJ" id="9Yi-ut-Ra3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="역검색" id="0r4-BL-dHe"/>
+                    <navigationItem key="navigationItem" title="역검색" style="editor" id="0r4-BL-dHe"/>
                     <connections>
                         <outlet property="searchBar" destination="e2V-M3-wvF" id="WyS-dC-MwQ"/>
                     </connections>
@@ -1070,6 +1096,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="TtG-w0-Cce" kind="relationship" relationship="viewControllers" id="XNn-kV-ldc"/>
@@ -1083,11 +1111,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lJE-ZF-ZAE"/>
+        <segue reference="iza-7K-Qpq"/>
         <segue reference="klQ-0C-Xiz"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="line1com" width="500" height="400"/>
+        <image name="line1com" width="166.66667175292969" height="133.33332824707031"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="83"/>
@@ -1104,6 +1132,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

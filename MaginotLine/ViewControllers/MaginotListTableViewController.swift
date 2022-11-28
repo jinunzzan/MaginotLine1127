@@ -171,6 +171,9 @@ class MaginotListTableViewController: UITableViewController {
             print(response)
             guard let result = response.value else { return }
             self.route = result.result
+            
+            
+            
             print("==================")
             print("전체 운행소요시간\(self.route?.globalTravelTime)")
             print("==================")
@@ -190,7 +193,11 @@ class MaginotListTableViewController: UITableViewController {
                 print("전체 운행소요시간\(self.route?.globalTravelTime)")
             }
             
-            self.searchTimeTable(start_index: 1, end_index: 500, station_cd: self.strStartStationCD, week_tag: self.strToday, inout_tag: "1")
+             
+            let strWayCode = "\(result.result.driveInfoSet.driveInfo[0].wayCode)"
+            print("wayCode:\(strWayCode)")
+            self.searchTimeTable(start_index: 1, end_index: 500, station_cd: self.strStartStationCD, week_tag: self.strToday, inout_tag: strWayCode )
+            
         }
     }
     
