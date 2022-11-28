@@ -914,43 +914,59 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GKC-1j-gEe">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GKC-1j-gEe">
                                             <rect key="frame" x="20" y="15" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="ksS-fq-Q1X"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="목동역" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tC-H3-Wuk">
-                                            <rect key="frame" x="64" y="8" width="137" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목동역" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tC-H3-Wuk">
+                                            <rect key="frame" x="64" y="8" width="49.333333333333343" height="30"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-C3-hZN">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-C3-hZN">
                                             <rect key="frame" x="218" y="14" width="69" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" title="출발역"/>
                                             <connections>
                                                 <action selector="selectStart:" destination="mjx-DJ-gAJ" eventType="touchUpInside" id="3Dc-6x-A0C"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nq-9A-7O8">
-                                            <rect key="frame" x="301" y="14" width="69" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nq-9A-7O8">
+                                            <rect key="frame" x="304" y="14" width="69" height="35"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" title="도착역"/>
                                             <connections>
                                                 <action selector="selectEnd:" destination="mjx-DJ-gAJ" eventType="touchUpInside" id="hQI-S4-kXM"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN2-Xf-4kS">
-                                            <rect key="frame" x="64" y="35" width="124" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN2-Xf-4kS">
+                                            <rect key="frame" x="64" y="39" width="35.666666666666657" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2Nq-9A-7O8" secondAttribute="trailing" id="02c-zD-j7t"/>
+                                        <constraint firstItem="GKC-1j-gEe" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="4" id="5dV-lF-fHm"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2tC-H3-Wuk" secondAttribute="bottom" constant="11" id="AIH-dY-qaj"/>
+                                        <constraint firstItem="2tC-H3-Wuk" firstAttribute="leading" secondItem="dN2-Xf-4kS" secondAttribute="leading" id="DzR-3e-g4B"/>
+                                        <constraint firstItem="dN2-Xf-4kS" firstAttribute="top" secondItem="2tC-H3-Wuk" secondAttribute="bottom" constant="1" id="IoH-pV-5C8"/>
+                                        <constraint firstItem="2tC-H3-Wuk" firstAttribute="leading" secondItem="GKC-1j-gEe" secondAttribute="trailing" constant="14" id="MWx-h9-KEi"/>
+                                        <constraint firstItem="dN2-Xf-4kS" firstAttribute="leading" secondItem="GKC-1j-gEe" secondAttribute="trailing" constant="14" id="QVx-Ni-I5v"/>
+                                        <constraint firstItem="2tC-H3-Wuk" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="top" constant="8" id="SQJ-Vh-q8U"/>
+                                        <constraint firstItem="GKC-1j-gEe" firstAttribute="leading" secondItem="hoI-EW-ZyH" secondAttribute="leadingMargin" id="UKq-g8-jdA"/>
+                                        <constraint firstItem="aQm-C3-hZN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dN2-Xf-4kS" secondAttribute="trailing" constant="8" symbolic="YES" id="ZWq-8E-Qt0"/>
+                                        <constraint firstItem="aQm-C3-hZN" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="3" id="bkO-Bh-5Eh"/>
+                                        <constraint firstItem="GKC-1j-gEe" firstAttribute="centerY" secondItem="hoI-EW-ZyH" secondAttribute="centerY" id="cIp-ej-zZw"/>
+                                        <constraint firstItem="2Nq-9A-7O8" firstAttribute="leading" secondItem="aQm-C3-hZN" secondAttribute="trailing" constant="17" id="gSG-dT-kkH"/>
+                                        <constraint firstItem="aQm-C3-hZN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2tC-H3-Wuk" secondAttribute="trailing" constant="8" symbolic="YES" id="jrc-iG-6RF"/>
+                                        <constraint firstItem="2tC-H3-Wuk" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="-3" id="nrq-gB-hcX"/>
+                                        <constraint firstItem="2Nq-9A-7O8" firstAttribute="top" secondItem="hoI-EW-ZyH" secondAttribute="topMargin" constant="3" id="vkd-OT-neB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
