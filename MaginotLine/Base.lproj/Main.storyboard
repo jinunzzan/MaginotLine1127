@@ -416,8 +416,12 @@
                                         <rect key="frame" x="0.0" y="116" width="313" height="50"/>
                                         <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="titleShadowOffset" width="1" height="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="로그인"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="로그인" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="loginSubmitBtn:" destination="w4G-Jd-m2A" eventType="touchUpInside" id="9Au-1X-T0o"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -431,6 +435,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bf3-uM-QRC"/>
+                    <connections>
+                        <outlet property="tfUserPw" destination="LTY-Wi-1bQ" id="DV6-uV-uZd"/>
+                        <outlet property="tfUserid" destination="5EH-Cy-bFQ" id="6as-iT-c5J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMQ-TY-TAa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -509,6 +517,7 @@
                             <constraint firstItem="TLa-uW-DE6" firstAttribute="trailing" secondItem="n3h-se-Wld" secondAttribute="trailing" constant="30" id="oYw-7y-M9n"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kZB-6N-zdI"/>
                     <connections>
                         <outlet property="profileImage" destination="zpR-sq-kwc" id="4cy-PO-1vQ"/>
                     </connections>
@@ -628,6 +637,9 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="21"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="joinBtn:" destination="SbX-ss-KMo" eventType="touchUpInside" id="IE5-BT-WMp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -727,6 +739,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WhP-t6-O9d"/>
+                    <connections>
+                        <outlet property="tfUserId" destination="OgP-qn-K8H" id="u0g-5a-WdP"/>
+                        <outlet property="tfUserName" destination="PBU-Lh-0lm" id="OBm-de-isC"/>
+                        <outlet property="tfUserNick" destination="MDb-d4-Ucx" id="5HK-65-dff"/>
+                        <outlet property="tfUserPw" destination="gI4-Q3-9Er" id="j9U-KS-RsH"/>
+                        <outlet property="tfUserPwCheck" destination="SJq-0b-EdV" id="NlX-5K-D3p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAK-sY-NDl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -930,6 +949,9 @@
                     <navigationItem key="navigationItem" title="마지노선 목록" style="editor" id="F6s-aa-Waf">
                         <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="mRg-WG-scB">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addFavorite:" destination="mbQ-eF-sqR" id="PjB-te-Dfj"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -1112,7 +1134,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="iza-7K-Qpq"/>
-        <segue reference="klQ-0C-Xiz"/>
+        <segue reference="flt-cK-nqo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="line1com" width="166.66667175292969" height="133.33332824707031"/>

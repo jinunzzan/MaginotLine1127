@@ -79,6 +79,12 @@ class MaginotListTableViewController: UITableViewController {
         searchSubwayPath(strStartFrCode ?? "", strEndFrCode ?? "")
     }
     
+    //즐겨찾기 버튼 클릭
+    @IBAction func addFavorite(_ sender: Any) {
+        
+    }
+    
+    
     func searchTimeTable(start_index:Int, end_index:Int,  station_cd:String, week_tag:String, inout_tag:String){
         
         let str = "http://openAPI.seoul.go.kr:8088/\(apiKey)/\(type)/\(serviceKey)/\(start_index)/\(end_index)/\(station_cd)/\(week_tag)/\(inout_tag)/"
