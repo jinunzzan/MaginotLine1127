@@ -31,3 +31,6 @@ struct MemberInfo: Codable {
 }
 
 var loginSuccess:String = "" // 로그인시 로그인 아이디 담는 변수
+
+//
+//var loginSuccessId: Void = UserDefaults.standard.set(loginSuccess, forKey: "loginSuccessId")

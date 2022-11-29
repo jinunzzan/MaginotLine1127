@@ -27,10 +27,15 @@ class LoginModalViewController: UIViewController {
         profileImage.layer.shadowRadius = 5
         profileImage.layer.shadowColor = UIColor.gray.cgColor
         
+        
+        
+        UserDefaults.standard.set(loginSuccess, forKey: "loginSuccessId")
+
         if loginSuccess.isEmpty {
             print("값이 없음")
         } else {
             print(loginSuccess)
+            print(UserDefaults.standard.string(forKey: "loginSuccessId") ?? "")
         }
 
     }
