@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zfd-FA-Cnh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wCp-Zj-oji">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -386,16 +386,32 @@
             </objects>
             <point key="canvasLocation" x="1901.5267175572519" y="2188.7323943661972"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wom-gb-L4w">
+            <objects>
+                <navigationController id="wCp-Zj-oji" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CAy-g5-S77">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="w4G-Jd-m2A" kind="relationship" relationship="rootViewController" id="CKg-4q-EI0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZo-uB-nka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5428" y="-161"/>
+        </scene>
         <!--Id Pw Insert View Controller-->
         <scene sceneID="ZNN-mR-95R">
             <objects>
                 <viewController id="w4G-Jd-m2A" customClass="IdPwInsertViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uRW-Y1-Vcq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wqx-db-A57">
-                                <rect key="frame" x="40" y="109" width="313" height="166"/>
+                                <rect key="frame" x="40" y="153" width="313" height="166"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5EH-Cy-bFQ">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="50"/>
@@ -425,6 +441,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="loginSubmitBtn:" destination="w4G-Jd-m2A" eventType="touchUpInside" id="9Au-1X-T0o"/>
+                                            <segue destination="Zfd-FA-Cnh" kind="show" id="v6o-Q0-zf3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -446,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMQ-TY-TAa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3031" y="2137"/>
+            <point key="canvasLocation" x="-4347" y="-161"/>
         </scene>
         <!--Login Modal View Controller-->
         <scene sceneID="ieb-V3-gN2">
@@ -501,9 +518,6 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="w4G-Jd-m2A" kind="show" id="r3S-a0-I31"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1115,6 +1129,7 @@
         <scene sceneID="ISF-nx-ZWF">
             <objects>
                 <tabBarController id="Zfd-FA-Cnh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="AUT-cd-KFW"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YdA-j0-jEW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1130,7 +1145,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNi-GW-97z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1295" y="-136"/>
+            <point key="canvasLocation" x="-3297" y="-161"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

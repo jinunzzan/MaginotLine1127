@@ -13,7 +13,6 @@ class CommunityViewController: UIViewController {
     //api 변수
     var boardPost: BoardPost?
 
-    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +52,9 @@ extension CommunityViewController:UICollectionViewDataSource{
         return cell
         
     }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        <#code#>
+//    }
 }
 extension CommunityViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
