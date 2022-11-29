@@ -116,7 +116,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zuh-KL-2i0">
                                     <size key="itemSize" width="188" height="185"/>
-                                    <size key="estimatedItemSize" width="234" height="231"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -130,12 +129,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qki-NL-hZ7">
-                                                    <rect key="frame" x="0.0" y="8" width="188" height="115"/>
+                                                    <rect key="frame" x="0.0" y="7.9999999999999929" width="188" height="117.33333333333331"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1호선" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm3-7Y-PWe">
-                                                    <rect key="frame" x="72" y="141" width="44.333333333333343" height="24"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <rect key="frame" x="74" y="143.33333333333334" width="40" height="21.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -148,7 +147,7 @@
                                                 <constraint firstItem="qki-NL-hZ7" firstAttribute="leading" secondItem="l5L-Zq-EJn" secondAttribute="leading" id="w5Q-eQ-3LD"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <size key="customSize" width="188" height="185"/>
                                         <connections>
                                             <segue destination="4nz-bB-oEk" kind="show" id="5mG-H3-QMa"/>
@@ -165,7 +164,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Nx-fH-79i"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="nLG-Rg-39t" secondAttribute="bottom" constant="20" id="9QC-w9-iif"/>
                             <constraint firstItem="nLG-Rg-39t" firstAttribute="leading" secondItem="9Nx-fH-79i" secondAttribute="leading" constant="10" id="DTr-2O-YpY"/>

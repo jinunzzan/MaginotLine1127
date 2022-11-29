@@ -43,7 +43,7 @@ let communities:[String:[Community]]
                 boardImg: "line9com",
                 boardNum: 9, boardName: "9호선"),
             Community(
-                boardImg: "ectlinecome",
-                boardNum: 10, boardName: "10호선")
+                boardImg: "ectlinecom",
+                boardNum: 10, boardName: "기타호선")
     ]
 ]

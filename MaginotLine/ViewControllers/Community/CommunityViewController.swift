@@ -35,7 +35,7 @@ extension CommunityViewController:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "communityCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "communityCell", for: indexPath)
      
         let keys = communities.keys.sorted()
         let key = keys[indexPath.section]
@@ -56,16 +56,24 @@ extension CommunityViewController:UICollectionViewDataSource{
 }
 extension CommunityViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSpace:CGFloat = 3
-        let width: CGFloat = (UIScreen.main.bounds.width - itemSpace * 2)/3
-        return CGSize(width: width, height: width * 1.2)
+        let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let width = collectionView.frame.width
+           let height = collectionView.frame.height
+           let itemsPerRow: CGFloat = 2
+           let widthPadding = sectionInsets.left * (itemsPerRow + 1)
+           let itemsPerColumn: CGFloat = 3
+           let heightPadding = sectionInsets.top * (itemsPerColumn + 1)
+           let cellWidth = (width - 10) / itemsPerRow
+           let cellHeight = (height - heightPadding) / itemsPerColumn
+           
+           return CGSize(width: cellWidth, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
+        return 10
     }
     
 }
