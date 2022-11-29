@@ -13,6 +13,8 @@ class IdPwInsertViewController: UIViewController {
     @IBOutlet weak var tfUserPw: UITextField!
     var memberInfo : MemberInfo?
     
+    let loginSerivce = LoginService.shared
+    
     @IBOutlet weak var tfUserid: UITextField!
     
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class IdPwInsertViewController: UIViewController {
         login()
         self.dismiss(animated: true)
     }
+    
     func login(){
         let loginUrl = url + "/member_login"
         guard let userId = tfUserid.text, !userId.isEmpty else { return }
@@ -48,14 +51,18 @@ class IdPwInsertViewController: UIViewController {
                 case .success(let res):
                 do {
                     print("데이터",String(data:res, encoding: .utf8) ?? "")
-                    var loginData = String(data:res, encoding: .utf8)
+                    let loginData = String(data:res, encoding: .utf8)
+                
                     loginSuccess.append(loginData ?? "")
                     print("loginSucess: \(loginSuccess)")
                 
                     loginSuccessId = self.tfUserid.text ?? ""
                     print("loginSuccessId: \(loginSuccessId)")
                     // loginSuccessId userdefault에 담기
-                    UserDefaults.standard.set(loginSuccessId, forKey: "loginSuccessId")
+//                    let id = UserDefaults.standard.string(forKey: "loginSuccessId")
+                    
+                    self.loginSerivce.login(id: self.tfUserid.text ?? "")
+
                     print("유저디폴트에 저장한 userId: \(String(describing: UserDefaults.standard.string(forKey: "loginSuccessId")))" )
                     
                     print("idPwInsertViewController")

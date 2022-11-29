@@ -31,7 +31,7 @@ struct MemberInfo: Codable {
 }
 
 var loginSuccess:String = "" //로그인시 로그인 정보 담는 변수
-var loginSuccessId = "" // 로그인시 로그인 아이디 담는 변수
+var loginSuccessId:String? // 로그인시 로그인 아이디 담는 변수
 
 
 // 커뮤니티
@@ -44,6 +44,7 @@ struct BoardPost:Codable{
     var post_num: Int
 }
 
-
+// 변수 사용하기 위해 전역변수에도 생성
+let id = UserDefaults.standard.string(forKey: "loginSuccessId")
 
 

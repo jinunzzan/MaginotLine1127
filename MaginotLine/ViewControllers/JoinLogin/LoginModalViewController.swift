@@ -32,6 +32,11 @@ class LoginModalViewController: UIViewController {
 
         if loginSuccess.isEmpty {
             print("값이 없음")
+           
+            guard let id = UserDefaults.standard.string(forKey: "loginSuccessId") else { return }
+            
+//            let id = UserDefaults.standard.string(forKey: "loginSuccessId")
+            print("유저디폴트에 저장한 변수 id = \(String(describing: id))")
         } else {
             print("LoginModalViewController")
             print(loginSuccess)

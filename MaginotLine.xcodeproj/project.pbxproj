@@ -25,6 +25,9 @@
 		594C75C72934656000FA292D /* IdPwInsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75C62934656000FA292D /* IdPwInsertViewController.swift */; };
 		594C75C92934932100FA292D /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75C82934932100FA292D /* Api.swift */; };
 		594C75CD29359F0400FA292D /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75CC29359F0400FA292D /* CommunityView.swift */; };
+		594C75D1293614D900FA292D /* MyMaginotLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D0293614D900FA292D /* MyMaginotLineTableViewController.swift */; };
+		594C75D429361E8D00FA292D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D329361E8D00FA292D /* LoginService.swift */; };
+		594C75D629361F4000FA292D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D529361F4000FA292D /* Constants.swift */; };
 		B80166822930C3E0008781F8 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166812930C3E0008781F8 /* CommunityViewController.swift */; };
 		B80166842930CC8A008781F8 /* NewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166832930CC8A008781F8 /* NewMemberViewController.swift */; };
 		B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166852930CCB6008781F8 /* MemberJoinViewController.swift */; };
@@ -51,6 +54,9 @@
 		594C75C62934656000FA292D /* IdPwInsertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdPwInsertViewController.swift; sourceTree = "<group>"; };
 		594C75C82934932100FA292D /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		594C75CC29359F0400FA292D /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
+		594C75D0293614D900FA292D /* MyMaginotLineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMaginotLineTableViewController.swift; sourceTree = "<group>"; };
+		594C75D329361E8D00FA292D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		594C75D529361F4000FA292D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B80166812930C3E0008781F8 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B80166832930CC8A008781F8 /* NewMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberViewController.swift; sourceTree = "<group>"; };
 		B80166852930CCB6008781F8 /* MemberJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberJoinViewController.swift; sourceTree = "<group>"; };
@@ -88,12 +94,14 @@
 		5930576E291CB3B00082EEF8 /* MaginotLine */ = {
 			isa = PBXGroup;
 			children = (
+				594C75D229361E7700FA292D /* Modules */,
 				593F7EA0292B27C100BA4BB9 /* ViewControllers */,
 				593F7EA1292B27EF00BA4BB9 /* Models */,
 				594C75C82934932100FA292D /* Api.swift */,
 				5930576F291CB3B00082EEF8 /* AppDelegate.swift */,
 				59305771291CB3B00082EEF8 /* SceneDelegate.swift */,
 				59305775291CB3B00082EEF8 /* Main.storyboard */,
+				594C75D0293614D900FA292D /* MyMaginotLineTableViewController.swift */,
 				59305778291CB3B10082EEF8 /* Assets.xcassets */,
 				5930577A291CB3B10082EEF8 /* LaunchScreen.storyboard */,
 				5930577D291CB3B10082EEF8 /* Info.plist */,
@@ -144,6 +152,15 @@
 				593F7F152933773F00BA4BB9 /* CommunityPostWriteViewController.swift */,
 			);
 			path = Community;
+			sourceTree = "<group>";
+		};
+		594C75D229361E7700FA292D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				594C75D329361E8D00FA292D /* LoginService.swift */,
+				594C75D529361F4000FA292D /* Constants.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,11 +247,14 @@
 				59305774291CB3B00082EEF8 /* ViewController.swift in Sources */,
 				59305770291CB3B00082EEF8 /* AppDelegate.swift in Sources */,
 				593F7F162933773F00BA4BB9 /* CommunityPostWriteViewController.swift in Sources */,
+				594C75D429361E8D00FA292D /* LoginService.swift in Sources */,
 				593F7EA3292B449B00BA4BB9 /* StationList.swift in Sources */,
 				B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */,
 				593F7E9929275E3900BA4BB9 /* TimeTable.swift in Sources */,
+				594C75D629361F4000FA292D /* Constants.swift in Sources */,
 				59305772291CB3B00082EEF8 /* SceneDelegate.swift in Sources */,
 				594C75C72934656000FA292D /* IdPwInsertViewController.swift in Sources */,
+				594C75D1293614D900FA292D /* MyMaginotLineTableViewController.swift in Sources */,
 				B80166822930C3E0008781F8 /* CommunityViewController.swift in Sources */,
 				593F7E9B292766EB00BA4BB9 /* SelectStationTableViewController.swift in Sources */,
 				594C75CD29359F0400FA292D /* CommunityView.swift in Sources */,

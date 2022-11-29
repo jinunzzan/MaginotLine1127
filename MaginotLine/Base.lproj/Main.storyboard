@@ -12,7 +12,7 @@
         <!--즐겨찾기-->
         <scene sceneID="fcM-jX-wTx">
             <objects>
-                <tableViewController id="Lh6-uk-zVQ" sceneMemberID="viewController">
+                <tableViewController id="Lh6-uk-zVQ" customClass="MyMaginotLineTableViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pVx-bA-gs5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -465,7 +465,7 @@
         <!--Login Modal View Controller-->
         <scene sceneID="ieb-V3-gN2">
             <objects>
-                <viewController id="Kix-pb-0zX" customClass="LoginModalViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginModalViewController" id="Kix-pb-0zX" customClass="LoginModalViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="InZ-OE-yuQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -861,7 +861,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-0I-Bna">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요," textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-0I-Bna">
                                 <rect key="frame" x="40" y="128" width="174.66666666666666" height="45.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="38"/>
                                 <color key="textColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -873,6 +873,15 @@
                                 <color key="textColor" red="0.13333332540000001" green="0.13725490870000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a97-vd-QDl">
+                                <rect key="frame" x="155" y="623" width="83" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
+                                <connections>
+                                    <action selector="logout:" destination="SDh-0Q-cnk" eventType="touchUpInside" id="QwV-O0-ghs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N6h-jA-zYG"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -892,6 +901,7 @@
                     <navigationItem key="navigationItem" id="5Ac-Yb-aho"/>
                     <connections>
                         <outlet property="endBtn" destination="prb-8n-wHF" id="QCs-zc-bCR"/>
+                        <outlet property="lblHiMessage" destination="ZE4-0I-Bna" id="e6M-HS-VWU"/>
                         <outlet property="startBtn" destination="HJA-ha-7mZ" id="LwA-za-vko"/>
                         <outlet property="timeBtn" destination="yXk-T5-hm4" id="xQj-fo-zy4"/>
                     </connections>
@@ -1150,7 +1160,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="iza-7K-Qpq"/>
-        <segue reference="flt-cK-nqo"/>
+        <segue reference="klQ-0C-Xiz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="line1com" width="166.66667175292969" height="133.33332824707031"/>
