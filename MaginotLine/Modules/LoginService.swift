@@ -10,10 +10,18 @@ import Foundation
 final class LoginService: NSObject {
     
     static let shared = LoginService()
+    var id: String?
     
     override init() {
         super.init()
         
+        
+    }
+    
+    func getID() -> String? {
+        id = UserDefaults.standard.string(forKey: Constant.loginID)
+        
+        return id
     }
     
     func checkLogin() -> Bool {
