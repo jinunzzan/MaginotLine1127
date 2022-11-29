@@ -54,6 +54,11 @@ class IdPwInsertViewController: UIViewController {
                 
                     loginSuccessId = self.tfUserid.text ?? ""
                     print("loginSuccessId: \(loginSuccessId)")
+                    // loginSuccessId userdefault에 담기
+                    UserDefaults.standard.set(loginSuccessId, forKey: "loginSuccessId")
+                    print("유저디폴트에 저장한 userId: \(String(describing: UserDefaults.standard.string(forKey: "loginSuccessId")))" )
+                    
+                    print("idPwInsertViewController")
                 }
                 case .failure(let error):
                 print("응답 코드 :", response.response?.statusCode ?? 0)
