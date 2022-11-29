@@ -48,7 +48,12 @@ class IdPwInsertViewController: UIViewController {
                 case .success(let res):
                 do {
                     print("데이터",String(data:res, encoding: .utf8) ?? "")
-                    loginSuccess.append(userId)
+                    var loginData = String(data:res, encoding: .utf8)
+                    loginSuccess.append(loginData ?? "")
+                    print("loginSucess: \(loginSuccess)")
+                
+                    loginSuccessId = self.tfUserid.text ?? ""
+                    print("loginSuccessId: \(loginSuccessId)")
                 }
                 case .failure(let error):
                 print("응답 코드 :", response.response?.statusCode ?? 0)

@@ -21,7 +21,7 @@ enum NetworkResult<T> {
     case serverErr
     case networkFail
 }
-
+// 회원가입, 로그인
 struct MemberInfo: Codable {
     let member_num: Int
     let member_id: String
@@ -30,7 +30,19 @@ struct MemberInfo: Codable {
     let member_nick: String
 }
 
-var loginSuccess:String = "" // 로그인시 로그인 아이디 담는 변수
+var loginSuccess:String = "" //로그인시 로그인 정보 담는 변수
+var loginSuccessId = "" // 로그인시 로그인 아이디 담는 변수
 
-//
-//var loginSuccessId: Void = UserDefaults.standard.set(loginSuccess, forKey: "loginSuccessId")
+// 커뮤니티
+struct BoardPost:Codable{
+    var board_num: Int
+    var post_content: String
+    var member_nick: String
+    var post_date: String
+    var post_update: Bool
+    var post_num: Int
+}
+
+
+
+

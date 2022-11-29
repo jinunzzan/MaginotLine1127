@@ -6,19 +6,27 @@
 //
 
 import UIKit
+import Alamofire
 
 class CommunityViewController: UIViewController {
 
+    //api 변수
+    var boardPost: BoardPost?
 
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-
 }
+
+
+
+
+// 컬렉션뷰 그리기
+
 extension CommunityViewController:UICollectionViewDataSource{
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -26,13 +34,20 @@ extension CommunityViewController:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "communityCell", for: indexPath)
+        
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "communityCell", for: indexPath)
+     
+        let keys = communities.keys.sorted()
+        let key = keys[indexPath.section]
+        guard let boardName = communities[key] else {fatalError()}
+        
+                let community = boardName[indexPath.row]
+        
         let communityImg = cell.viewWithTag(1) as? UIImageView
-        communityImg?.image = UIImage(named: "line1com")
+        communityImg?.image = UIImage(named: community.boardImg)
         
-        let communityName = cell.viewWithTag(12) as? UILabel
-        
-        communityName?.text = "n호선"
+        let communityName = cell.viewWithTag(2) as? UILabel
+        communityName?.text = community.boardName
         
         cell.layer.cornerRadius = 20
         return cell
