@@ -9,6 +9,12 @@ import UIKit
 
 class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var fixedImage: UIImageView!
+    
+    @IBOutlet weak var lblBoard: UILabel!
+    
+    
+    var board:Community?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var fixHeaderHeight: NSLayoutConstraint!
@@ -22,42 +28,46 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         collectionView.delegate = self
         
         view.addSubview(floatingButton)
-       setFloatingButton()
-       
+        setFloatingButton()
+        if let board = board {
+            fixedImage.image = UIImage(named: board.boardImg)
+            lblBoard.text = board.boardName
+        }
+        
     }
     
     //글쓰기 버튼
     lazy var floatingButton: UIButton = {
-           let button = UIButton(type: .system)
+        let button = UIButton(type: .system)
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
         let image = UIImage(systemName: "pencil.circle.fill", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
         button.tintColor = .systemPink
         
         button.translatesAutoresizingMaskIntoConstraints = false
-           button.setTitle("", for: .normal)
+        button.setTitle("", for: .normal)
         button.addTarget(self, action: #selector(ClickedBtn), for: .touchUpInside)
-       
-           return button
-       }()
+        
+        return button
+    }()
     //floatingButton 위치 조정
     func setFloatingButton(){
         view.addConstraint(NSLayoutConstraint(item: floatingButton, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: -40))
         view.addConstraint(NSLayoutConstraint(item: floatingButton, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: -32))
-           
+        
     }
     // flotingButton 클릭시 modalView
     func BtnFunc(){
         floatingButton.addTarget(self, action: #selector(self.ClickedBtn), for: .touchUpInside)
-       
+        
     }
     @objc func ClickedBtn(sender: UIButton!){
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as! CommunityPostWriteViewController
         
-       
-            present(vc, animated: true, completion: nil)
-            print("버튼 클릭")
+        
+        present(vc, animated: true, completion: nil)
+        print("버튼 클릭")
     }
     
     
@@ -86,7 +96,7 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
             fixHeaderHeight.constant = ModifiedTopHeight
             scrollView.contentOffset.y = 0
         }
-       
+        
         
     }
 }
@@ -105,4 +115,12 @@ extension CommunityPostViewController:UICollectionViewDataSource {
 }
 extension CommunityPostViewController:UICollectionViewDelegate {
     
+}
+extension CommunityPostWriteViewController:UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//       // 뷰 고치기
+//    }
 }

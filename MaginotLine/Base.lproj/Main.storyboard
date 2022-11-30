@@ -218,8 +218,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1호선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swv-qL-lgY">
-                                        <rect key="frame" x="22" y="204" width="72" height="39"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1호선" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swv-qL-lgY">
+                                        <rect key="frame" x="22" y="204" width="184" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -285,6 +285,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
+                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="4ZR-s6-eEN" secondAttribute="trailing" constant="20" id="GEl-Bs-51I"/>
                                                                 <constraint firstItem="4ZR-s6-eEN" firstAttribute="leading" secondItem="JGa-6R-0C5" secondAttribute="leading" constant="20" id="lOh-Cu-TR7"/>
@@ -292,6 +293,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="4ZR-s6-eEN" secondAttribute="bottom" constant="20" id="vDZ-zx-hQT"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <size key="customSize" width="393" height="219"/>
                                                     </collectionViewCell>
                                                 </cells>
@@ -332,6 +334,8 @@
                     <connections>
                         <outlet property="collectionView" destination="H7v-LD-dmR" id="S2C-pB-qaC"/>
                         <outlet property="fixHeaderHeight" destination="Hyy-fM-ypD" id="Eyg-X6-TQr"/>
+                        <outlet property="fixedImage" destination="xel-0B-91z" id="aBX-3T-qge"/>
+                        <outlet property="lblBoard" destination="swv-qL-lgY" id="Qit-oV-JHI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uq6-f5-E3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
