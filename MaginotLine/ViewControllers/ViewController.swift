@@ -55,13 +55,10 @@ class ViewController: UIViewController{
             guard let id = loginService.getID() else { return }
             lblHiMessage.text = "안녕하세요, \(String(describing: id))님"
             lblHiMessage.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-    
-           
         }
     }
     // 출발역 도착역 선택 후 받아오기
     func setStation(type:Int, value:String, frCode: String, cd: String){
-        
         if type == 0 {
             startBtn.setTitle("\(value)",for:.normal)
             print("fr_code: \(frCode)")
@@ -92,8 +89,6 @@ class ViewController: UIViewController{
             guard let vc = segue.destination as? SelectStationTableViewController else {return}
             vc.beforeVC = self
         }
-        
-       
         
     }
     

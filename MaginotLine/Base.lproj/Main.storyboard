@@ -403,7 +403,7 @@
         <!--Id Pw Insert View Controller-->
         <scene sceneID="ZNN-mR-95R">
             <objects>
-                <viewController id="w4G-Jd-m2A" customClass="IdPwInsertViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IdPwInsertViewController" id="w4G-Jd-m2A" customClass="IdPwInsertViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uRW-Y1-Vcq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,7 +501,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="zFn-st-pwE" kind="show" id="Vzk-zk-7b1"/>
+                                            <segue destination="SbX-ss-KMo" kind="show" id="meY-Kz-qTB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-Wl-2M0">
@@ -543,56 +543,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk4-rq-m6H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2287.7862595419847" y="1392.9577464788733"/>
-        </scene>
-        <!--New Member View Controller-->
-        <scene sceneID="BpX-Hq-usi">
-            <objects>
-                <viewController id="zFn-st-pwE" customClass="NewMemberViewController" customModule="MaginotLine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i3n-uu-UcW">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0p-w0-eai">
-                                <rect key="frame" x="30" y="109" width="333" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="JNd-NH-40V"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="회원가입" cornerStyle="large" titleAlignment="leading">
-                                    <backgroundConfiguration key="background" strokeWidth="0.0">
-                                        <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="strokeColor" systemColor="labelColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="SbX-ss-KMo" kind="show" id="Bj2-Ap-i1I"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간편 가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzA-Gh-i1S">
-                                <rect key="frame" x="30" y="179" width="56" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="BYo-yt-pEl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="y0p-w0-eai" firstAttribute="top" secondItem="BYo-yt-pEl" secondAttribute="top" constant="50" id="6As-6n-34d"/>
-                            <constraint firstItem="y0p-w0-eai" firstAttribute="centerX" secondItem="i3n-uu-UcW" secondAttribute="centerX" id="Fch-FQ-bY3"/>
-                            <constraint firstItem="bzA-Gh-i1S" firstAttribute="leading" secondItem="BYo-yt-pEl" secondAttribute="leading" constant="30" id="GTb-RG-fyB"/>
-                            <constraint firstItem="BYo-yt-pEl" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bzA-Gh-i1S" secondAttribute="trailing" symbolic="YES" id="eqc-KL-r8W"/>
-                            <constraint firstItem="bzA-Gh-i1S" firstAttribute="top" secondItem="y0p-w0-eai" secondAttribute="bottom" constant="20" id="hAk-bY-j96"/>
-                            <constraint firstItem="y0p-w0-eai" firstAttribute="leading" secondItem="BYo-yt-pEl" secondAttribute="leading" constant="30" id="iS3-6s-ddq"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="daZ-CG-zZj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tPU-oi-zRa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3063.3587786259541" y="1392.9577464788733"/>
         </scene>
         <!--Member Join View Controller-->
         <scene sceneID="OCb-aS-38z">
@@ -767,7 +717,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAK-sY-NDl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3791.3043478260875" y="1392.8571428571429"/>
+            <point key="canvasLocation" x="3002" y="1392"/>
         </scene>
         <!--검색-->
         <scene sceneID="bGw-5T-0MR">
