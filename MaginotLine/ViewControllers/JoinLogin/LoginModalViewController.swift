@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class LoginModalViewController: UIViewController {
 
@@ -48,7 +49,14 @@ class LoginModalViewController: UIViewController {
     }
     
     
-
+    @IBAction func appleLogin(_ sender: Any) {
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+        controller.performRequests()    }
+    
     /*
     // MARK: - Navigation
 
@@ -59,4 +67,20 @@ class LoginModalViewController: UIViewController {
     }
     */
 
+}
+
+extension LoginModalViewController : ASAuthorizationControllerDelegate  {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            let user = credential.user
+            print(credential.user)
+            print(credential.email)
+            print(credential.authorizationCode)
+            print(credential.fullName)
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("error \(error)")
+    }
 }

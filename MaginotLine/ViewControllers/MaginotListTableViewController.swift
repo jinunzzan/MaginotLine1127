@@ -166,6 +166,7 @@ class MaginotListTableViewController: UITableViewController {
         }
         
     }
+
     
     func searchSubwayPath(_ sid:String,_ eid:String){
         let str = "https://api.odsay.com/v1/api/subwayPath"
@@ -249,7 +250,7 @@ class MaginotListTableViewController: UITableViewController {
         
         let lblEndTime = cell.viewWithTag(4) as? UILabel
         lblEndTime?.text = formatter.string(from: dateLeftTime1)
-        
+       
         return cell
     }
     
