@@ -14,8 +14,6 @@ final class LoginService: NSObject {
     
     override init() {
         super.init()
-        
-        
     }
     
     func getID() -> String? {

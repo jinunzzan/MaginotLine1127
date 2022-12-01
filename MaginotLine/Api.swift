@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-let url = "http://192.168.0.12:3000"
+let url = "http://localhost:3000"
 let joinUrl = url + "/member_info"
 
 

@@ -55,7 +55,9 @@ class LoginModalViewController: UIViewController {
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = self
         controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
-        controller.performRequests()    }
+        controller.performRequests()
+        
+    }
     
     /*
     // MARK: - Navigation
@@ -84,3 +86,4 @@ extension LoginModalViewController : ASAuthorizationControllerDelegate  {
         print("error \(error)")
     }
 }
+
