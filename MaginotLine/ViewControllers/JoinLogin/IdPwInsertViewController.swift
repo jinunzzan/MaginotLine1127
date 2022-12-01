@@ -79,6 +79,7 @@ class IdPwInsertViewController: UIViewController {
             
         }
     }
+    //member_info 가져와서 유저디폴트에 담기!
     func getList(id:String){
         let str = "\(url)/member_info/\(id)"
         AF.request(str, method: .get)

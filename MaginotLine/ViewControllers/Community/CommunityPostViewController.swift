@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     
@@ -13,8 +14,9 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var lblBoard: UILabel!
     
-    
     var board:Community?
+    
+    var boardPosts:[BoardPost] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var fixHeaderHeight: NSLayoutConstraint!
@@ -26,6 +28,8 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        getBoardPostList(boardNum: board?.boardNum ?? 1)
+       
         
         view.addSubview(floatingButton)
         setFloatingButton()
@@ -35,7 +39,21 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         }
         
     }
-    
+    // 게시글 get 해오기!
+    func getBoardPostList(boardNum:Int){
+        let str = "\(url)/board_post/\(board?.boardNum ?? 1)"
+        AF.request(str, method: .get)
+            .responseDecodable(of:[BoardPost].self){
+                response in
+                print("response: \(response)")
+                guard let res = response.value else {return}
+               
+                self.boardPosts = res
+                print("나는야 보드 포스트 \(self.boardPosts)")
+                self.collectionView.reloadData()
+
+            }
+    }
     //글쓰기 버튼
     lazy var floatingButton: UIButton = {
         let button = UIButton(type: .system)
@@ -68,6 +86,7 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         
         present(vc, animated: true, completion: nil)
         print("버튼 클릭")
+       
     }
     
     
@@ -102,12 +121,23 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
 }
 extension CommunityPostViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return boardPosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("indexPath.row : \(indexPath.row)")
+        let boardPost = boardPosts[indexPath.row]
+        print("boardPost입니다: \(boardPost))")
+       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath)
         cell.layer.cornerRadius = 20
+        
+       let postNick =  cell.viewWithTag(1) as? UILabel
+        postNick?.text = boardPost.member_nick
+        
+        let postContent = cell.viewWithTag(2) as? UILabel
+        postContent?.text = boardPost.post_content
+        
         return cell
     }
     
@@ -116,7 +146,7 @@ extension CommunityPostViewController:UICollectionViewDataSource {
 extension CommunityPostViewController:UICollectionViewDelegate {
     
 }
-extension CommunityPostWriteViewController:UICollectionViewDelegateFlowLayout{
+extension CommunityPostViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }

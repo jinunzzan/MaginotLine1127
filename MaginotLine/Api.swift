@@ -37,12 +37,12 @@ var loginMemberInfo: MemberInfo?
 
 // 커뮤니티
 struct BoardPost:Codable{
-    var board_num: Int
+    var board_num: Int?
     var post_content: String
     var member_nick: String
-    var post_date: String
-    var post_update: Bool
-    var post_num: Int
+//    var post_date: String
+//    var post_update: Int
+//    var post_num: Int
 }
 
 // 변수 사용하기 위해 전역변수에도 생성
