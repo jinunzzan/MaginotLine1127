@@ -11,6 +11,7 @@ final class LoginService: NSObject {
     
     static let shared = LoginService()
     var id: String?
+    var nick: String?
     
     override init() {
         super.init()
@@ -21,6 +22,12 @@ final class LoginService: NSObject {
         
         return id
     }
+ 
+    func useNick(nick: String){
+        UserDefaults.standard.set(nick, forKey: Constant.loginNick)
+    }
+    
+   
     
     func checkLogin() -> Bool {
         if UserDefaults.standard.string(forKey: Constant.loginID) != nil {

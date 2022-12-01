@@ -9,4 +9,6 @@ import Foundation
 
 struct Constant {
     static let loginID = "loginSuccessID"
+    static let loginNick = "loginSuccessNick"
 }
+
