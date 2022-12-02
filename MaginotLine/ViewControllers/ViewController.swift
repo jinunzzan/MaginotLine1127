@@ -52,8 +52,9 @@ class ViewController: UIViewController{
         if !loginService.checkLogin() {
             lblHiMessage.text = "안녕하세요, "
         } else {
-            guard let id = loginService.getID() else { return }
-            lblHiMessage.text = "안녕하세요, \(String(describing: id))님"
+//            guard let id = loginService.getID() else { return }
+            guard let memberNick = UserDefaults.standard.string(forKey: Constant.loginNick) else {return}
+            lblHiMessage.text = "안녕하세요, \(memberNick) 님"
             lblHiMessage.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         }
     }

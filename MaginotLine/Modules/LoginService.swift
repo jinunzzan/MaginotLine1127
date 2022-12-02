@@ -43,5 +43,6 @@ final class LoginService: NSObject {
     
     func logout() {
         UserDefaults.standard.removeObject(forKey: Constant.loginID)
+        UserDefaults.standard.removeObject(forKey: Constant.loginNick)
     }
 }

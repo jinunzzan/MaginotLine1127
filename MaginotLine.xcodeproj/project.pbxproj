@@ -29,6 +29,7 @@
 		594C75D1293614D900FA292D /* MyMaginotLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D0293614D900FA292D /* MyMaginotLineTableViewController.swift */; };
 		594C75D429361E8D00FA292D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D329361E8D00FA292D /* LoginService.swift */; };
 		594C75D629361F4000FA292D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D529361F4000FA292D /* Constants.swift */; };
+		59BDC547293A208600B6F1FC /* PostAndCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */; };
 		B80166822930C3E0008781F8 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166812930C3E0008781F8 /* CommunityViewController.swift */; };
 		B80166842930CC8A008781F8 /* NewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166832930CC8A008781F8 /* NewMemberViewController.swift */; };
 		B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166852930CCB6008781F8 /* MemberJoinViewController.swift */; };
@@ -60,6 +61,7 @@
 		594C75D0293614D900FA292D /* MyMaginotLineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMaginotLineTableViewController.swift; sourceTree = "<group>"; };
 		594C75D329361E8D00FA292D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		594C75D529361F4000FA292D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAndCommentViewController.swift; sourceTree = "<group>"; };
 		B80166812930C3E0008781F8 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B80166832930CC8A008781F8 /* NewMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberViewController.swift; sourceTree = "<group>"; };
 		B80166852930CCB6008781F8 /* MemberJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberJoinViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				B80166812930C3E0008781F8 /* CommunityViewController.swift */,
 				B84D633B2931F4DA0001FC69 /* CommunityPostViewController.swift */,
 				593F7F152933773F00BA4BB9 /* CommunityPostWriteViewController.swift */,
+				59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				593F7EA3292B449B00BA4BB9 /* StationList.swift in Sources */,
 				B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */,
 				593F7E9929275E3900BA4BB9 /* TimeTable.swift in Sources */,
+				59BDC547293A208600B6F1FC /* PostAndCommentViewController.swift in Sources */,
 				594C75D629361F4000FA292D /* Constants.swift in Sources */,
 				59305772291CB3B00082EEF8 /* SceneDelegate.swift in Sources */,
 				594C75C72934656000FA292D /* IdPwInsertViewController.swift in Sources */,

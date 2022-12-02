@@ -24,18 +24,19 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
         textView.textContainer.lineFragmentPadding = 0
         
         self.textView.becomeFirstResponder()
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     // textViewPlaceholder
     func textViewDidChange(_ textView:UITextView){
-            if textView.text == "" {
-                placeHolderLabel.isHidden = false
-            } else {
-                placeHolderLabel.isHidden = true
-            }
+        if textView.text == "" {
+            placeHolderLabel.isHidden = false
+        } else {
+            placeHolderLabel.isHidden = true
         }
+    }
     
     @IBAction func cancelBtn(_ sender: Any) {
         self.dismiss(animated: true)
@@ -43,8 +44,9 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func postBtn(_ sender: Any) {
         post()
-        print("boardNum: \(board?.boardNum)/n memberNick: \(memberInfo?.member_nick)")
-
+       dismiss(animated: true)
+        
+        
     }
     
     func post(){
@@ -78,13 +80,4 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
         }
         
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }

@@ -9,10 +9,12 @@ import Foundation
 import Alamofire
 
 
-let url = "http://localhost:3000"
+let url = "http://192.168.0.11:3000"
 let joinUrl = url + "/member_info"
 
 let postUrl = url + "/board_post"
+
+
 
 
 enum NetworkResult<T> {
@@ -41,9 +43,17 @@ struct BoardPost:Codable{
     var board_num: Int?
     var post_content: String
     var member_nick: String
-//    var post_date: String
-//    var post_update: Int
-//    var post_num: Int
+    var post_date: String
+    var post_update: Int
+    var post_num: Int
+}
+
+//커뮤니티 댓글
+struct PostComment:Codable{
+    var comment_num: Int?
+    var post_num:Int?
+    var member_nick:String?
+    var comment_content:String?
 }
 
 // 변수 사용하기 위해 전역변수에도 생성
