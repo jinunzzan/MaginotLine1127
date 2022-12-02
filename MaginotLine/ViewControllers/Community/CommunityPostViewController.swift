@@ -89,6 +89,15 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? CommunityPostWriteViewController
+        let indexPaths = collectionView.indexPathsForSelectedItems
+        guard let indexPath = indexPaths?.first else { return }
+        let community = communities[indexPath.row]
+        vc?.board = community
+    }
+    
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         

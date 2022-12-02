@@ -12,6 +12,7 @@ import Alamofire
 let url = "http://localhost:3000"
 let joinUrl = url + "/member_info"
 
+let postUrl = url + "/board_post"
 
 
 enum NetworkResult<T> {

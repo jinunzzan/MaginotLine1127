@@ -12,6 +12,7 @@ class CommunityViewController: UIViewController {
     
     //api 변수
     var boardPost: BoardPost?
+    let loginService = LoginService.shared
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -19,7 +20,37 @@ class CommunityViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+    @IBAction func checkLogin(_ sender: Any) {
+        if loginService.checkLogin() == true {
+            guard let afterLoginVC = self.storyboard?.instantiateViewController(identifier: "AfterLoginViewController") as? AfterLoginViewController else { return }
+//            afterLoginVC.modalTransitionStyle = .coverVertical
+//            afterLoginVC.modalPresentationStyle = .fullScreen
+            if let sheet = afterLoginVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+            }
+            self.present(afterLoginVC, animated: true, completion:nil)
+        } else {
+            guard let beforeLoginVC = self.storyboard?.instantiateViewController(identifier: "LoginModalViewController") as? LoginModalViewController else { return }
+//            beforeLoginVC.modalTransitionStyle = .coverVertical
+//            beforeLoginVC.modalPresentationStyle = .fullScreen
+            if let sheet = beforeLoginVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+            }
+            self.present(beforeLoginVC, animated: true, completion:nil)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? CommunityPostViewController
+        let indexPaths = collectionView.indexPathsForSelectedItems
+        guard let indexPath = indexPaths?.first else { return }
+        let community = communities[indexPath.row]
+        vc?.board = community
+    }
 }
+
 
 
 
@@ -48,14 +79,7 @@ extension CommunityViewController:UICollectionViewDataSource{
         return cell
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as? CommunityPostViewController
-        let indexPaths = collectionView.indexPathsForSelectedItems
-        guard let indexPath = indexPaths?.first else { fatalError() }
-        let community = communities[indexPath.row]
-        vc?.board = community
-        
-    }
+
 }
 extension CommunityViewController:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
