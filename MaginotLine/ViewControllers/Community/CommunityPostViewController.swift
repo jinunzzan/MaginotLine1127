@@ -11,7 +11,6 @@ import Alamofire
 class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var fixedImage: UIImageView!
-    
     @IBOutlet weak var lblBoard: UILabel!
     
     var board:Community?
@@ -24,12 +23,12 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     let MinTopHeight:CGFloat = 50 + UIApplication.shared.statusBarFrame.height
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         getBoardPostList(boardNum: board?.boardNum ?? 1)
-       
         
         view.addSubview(floatingButton)
         setFloatingButton()
@@ -37,6 +36,7 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
             fixedImage.image = UIImage(named: board.boardImg)
             lblBoard.text = board.boardName
         }
+        
         
     }
     // 게시글 get 해오기!
@@ -47,13 +47,14 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
                 response in
                 print("response: \(response)")
                 guard let res = response.value else {return}
-               
+                
                 self.boardPosts = res
                 print("나는야 보드 포스트 \(self.boardPosts)")
                 self.collectionView.reloadData()
-
+                
             }
     }
+    
     //글쓰기 버튼
     lazy var floatingButton: UIButton = {
         let button = UIButton(type: .system)
@@ -81,22 +82,21 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     }
     @objc func ClickedBtn(sender: UIButton!){
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as! CommunityPostWriteViewController
-        
+        guard let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as? CommunityPostWriteViewController,
+              let board = self.board else { return }
+        vc.boardNumber = board.boardNum
         
         present(vc, animated: true, completion: nil)
         print("버튼 클릭")
-       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as? CommunityPostViewController
+        let vc = segue.destination as? CommunityPostWriteViewController
         let indexPaths = collectionView.indexPathsForSelectedItems
         guard let indexPath = indexPaths?.first else { return }
         let community = communities[indexPath.row]
         vc?.board = community
     }
-    
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -137,11 +137,11 @@ extension CommunityPostViewController:UICollectionViewDataSource {
         print("indexPath.row : \(indexPath.row)")
         let boardPost = boardPosts[indexPath.row]
         print("boardPost입니다: \(boardPost))")
-       
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath)
         cell.layer.cornerRadius = 20
         
-       let postNick =  cell.viewWithTag(1) as? UILabel
+        let postNick =  cell.viewWithTag(1) as? UILabel
         postNick?.text = boardPost.member_nick
         
         let postContent = cell.viewWithTag(2) as? UILabel
@@ -159,7 +159,4 @@ extension CommunityPostViewController:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//       // 뷰 고치기
-//    }
 }

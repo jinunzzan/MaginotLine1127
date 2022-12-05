@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-let url = "http://192.168.0.11:3000"
+let url = "http://172.30.1.98:3000"
 let joinUrl = url + "/member_info"
 
 let postUrl = url + "/board_post"
@@ -43,9 +43,9 @@ struct BoardPost:Codable{
     var board_num: Int?
     var post_content: String
     var member_nick: String
-    var post_date: String
-    var post_update: Int
-    var post_num: Int
+//    var post_date: String
+//    var post_update: Int
+//    var post_num: Int
 }
 
 //커뮤니티 댓글

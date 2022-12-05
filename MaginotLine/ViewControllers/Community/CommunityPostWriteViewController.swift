@@ -16,6 +16,7 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     var board: Community?
     var memberInfo : MemberInfo?
+    var boardNumber:Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,18 +45,17 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func postBtn(_ sender: Any) {
         post()
-       dismiss(animated: true)
-        
-        
+        print("boardNum: \(boardNumber) memberNick: \(memberInfo?.member_nick)")
+        self.dismiss(animated: true)
     }
     
     func post(){
-        let boardNum = board?.boardNum
+        
         guard let postContent = textView.text, !postContent.isEmpty else {fatalError()}
         guard let memberNick = UserDefaults.standard.string(forKey: Constant.loginNick) else {return}
         
         let params: Parameters = [
-            "board_num" : boardNum ?? 10,
+            "board_num" : boardNumber,
             "post_content" : postContent,
             "member_nick" : memberNick
         ]
