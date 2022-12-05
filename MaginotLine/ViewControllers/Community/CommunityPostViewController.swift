@@ -80,11 +80,18 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         floatingButton.addTarget(self, action: #selector(self.ClickedBtn), for: .touchUpInside)
         
     }
+    //새로고침
+    func refresh(value: BoardPost){
+        self.boardPosts.append(value)
+        collectionView.reloadData()
+    }
     @objc func ClickedBtn(sender: UIButton!){
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as? CommunityPostWriteViewController,
               let board = self.board else { return }
         vc.boardNumber = board.boardNum
+//        vc.beforeVC = self
+//
         
         present(vc, animated: true, completion: nil)
         print("버튼 클릭")

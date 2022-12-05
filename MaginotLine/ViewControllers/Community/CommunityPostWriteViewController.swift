@@ -13,6 +13,8 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var placeHolderLabel: UILabel!
     
+    var beforeVC: UICollectionView?
+    
     
     var board: Community?
     var memberInfo : MemberInfo?
@@ -45,6 +47,7 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func postBtn(_ sender: Any) {
         post()
+//        beforeVC?.refresh()
         print("boardNum: \(boardNumber) memberNick: \(memberInfo?.member_nick)")
         self.dismiss(animated: true)
     }

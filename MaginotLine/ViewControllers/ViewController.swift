@@ -130,14 +130,6 @@ class ViewController: UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    @IBAction func logout(_ sender: Any) {
-//        UserDefaults.standard.removeObject(forKey: "loginSuccessId")
-        loginService.logout()
-        print("logout")
-        print("로그아웃하면 id는 뭐라고 나올까요? \(id)")
-    }
-    
     // 검색 버튼으로 데이터 전송
     @IBAction func setMaginotLine(_ sender: UIButton) {
         setBtnTitle()
