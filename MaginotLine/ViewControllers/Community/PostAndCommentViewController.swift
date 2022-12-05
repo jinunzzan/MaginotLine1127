@@ -40,8 +40,21 @@ class PostAndCommentViewController: UIViewController {
     }
     
     @IBAction func commentSubmit(_ sender: Any) {
-        commentWrite()
-        getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
+        
+        if !loginSerivce.checkLogin(){
+            loginModalView()
+        } else {
+            commentWrite()
+            getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
+        }
+        // 댓글 단 후 tf 초기화
+        tfComment.text = ""
+    }
+    // 로그아웃 상태시 로그인 모달 띄우기
+    func loginModalView(){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "LoginModalViewController") as! LoginModalViewController
+        present(vc, animated: true, completion: nil)
     }
     // 댓글 .get
     func getPostCommentList(post_num:Int){

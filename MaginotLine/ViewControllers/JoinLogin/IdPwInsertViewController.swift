@@ -32,6 +32,8 @@ class IdPwInsertViewController: UIViewController {
     @IBAction func loginSubmitBtn(_ sender: Any) {
         login()
         getList(id: tfUserid.text ?? "")
+        
+        
         self.dismiss(animated: true)
         
     }

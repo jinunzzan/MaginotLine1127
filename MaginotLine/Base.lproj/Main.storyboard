@@ -76,54 +76,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-hg-P3m">
-                                <rect key="frame" x="96" y="59" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-hg-P3m">
+                                <rect key="frame" x="96" y="79" width="201" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="NM0-hv-oiP"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@@@님" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTu-fP-8h3">
-                                <rect key="frame" x="136" y="270" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbW-Sb-fPy">
-                                <rect key="frame" x="30" y="312" width="333" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="프로필 사진 수정" cornerStyle="large" titleAlignment="leading">
-                                    <backgroundConfiguration key="background" strokeWidth="0.0">
-                                        <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="strokeColor" systemColor="labelColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="modifyProfile:" destination="Pi0-TQ-7ir" eventType="touchUpInside" id="UI8-aH-OwQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDs-gm-u2Z">
-                                <rect key="frame" x="30" y="370" width="333" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="로그아웃" cornerStyle="large" titleAlignment="leading">
-                                    <backgroundConfiguration key="background" strokeWidth="0.0">
-                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                        <color key="strokeColor" systemColor="labelColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="logout:" destination="Pi0-TQ-7ir" eventType="touchUpInside" id="Tmf-Lz-8v0"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="h2j-tE-ZwO">
+                                <rect key="frame" x="30" y="289" width="333" height="172"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@@@님" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTu-fP-8h3">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Lr7-zm-vX2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbW-Sb-fPy">
+                                        <rect key="frame" x="0.0" y="61" width="333" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8Y8-Z2-Nsm"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="프로필 사진 수정" cornerStyle="large" titleAlignment="leading">
+                                            <backgroundConfiguration key="background" strokeWidth="0.0">
+                                                <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="strokeColor" systemColor="labelColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="modifyProfile:" destination="Pi0-TQ-7ir" eventType="touchUpInside" id="UI8-aH-OwQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDs-gm-u2Z">
+                                        <rect key="frame" x="0.0" y="122" width="333" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9Gg-iI-9pq"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="로그아웃" cornerStyle="large" titleAlignment="leading">
+                                            <backgroundConfiguration key="background" strokeWidth="0.0">
+                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <color key="strokeColor" systemColor="labelColor"/>
+                                            </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="logout:" destination="Pi0-TQ-7ir" eventType="touchUpInside" id="Tmf-Lz-8v0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZPr-ES-pg1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h2j-tE-ZwO" firstAttribute="centerX" secondItem="MJu-Bg-2xo" secondAttribute="centerX" id="BtG-Fw-wZD"/>
+                            <constraint firstItem="2hd-hg-P3m" firstAttribute="leading" secondItem="ZPr-ES-pg1" secondAttribute="leading" constant="96" id="FGO-kO-ppX"/>
+                            <constraint firstItem="2hd-hg-P3m" firstAttribute="top" secondItem="ZPr-ES-pg1" secondAttribute="top" constant="20" id="IRF-KC-Y0n"/>
+                            <constraint firstItem="ZPr-ES-pg1" firstAttribute="trailing" secondItem="h2j-tE-ZwO" secondAttribute="trailing" constant="30" id="RdJ-VN-mqw"/>
+                            <constraint firstItem="h2j-tE-ZwO" firstAttribute="leading" secondItem="ZPr-ES-pg1" secondAttribute="leading" constant="30" id="TcR-OC-vrY"/>
+                            <constraint firstItem="h2j-tE-ZwO" firstAttribute="top" secondItem="2hd-hg-P3m" secondAttribute="bottom" constant="10" id="gHf-ri-qQT"/>
+                            <constraint firstItem="2hd-hg-P3m" firstAttribute="centerX" secondItem="MJu-Bg-2xo" secondAttribute="centerX" id="gyH-Pc-Mlq"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblNick" destination="lTu-fP-8h3" id="Glv-jT-amj"/>
                         <outlet property="profileImage" destination="2hd-hg-P3m" id="CKC-md-h7J"/>
                     </connections>
                 </viewController>
@@ -702,7 +725,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTY-Wi-1bQ">
                                         <rect key="frame" x="0.0" y="58" width="313" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDe-A2-xj7">
                                         <rect key="frame" x="0.0" y="116" width="313" height="50"/>

@@ -47,6 +47,8 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         setBtnTitle()
 
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
+
     }
     override func viewWillAppear(_ animated: Bool) {
         if !loginService.checkLogin() {

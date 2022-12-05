@@ -11,13 +11,17 @@ class AfterLoginViewController: UIViewController, UIImagePickerControllerDelegat
     let loginService = LoginService.shared
     let picker = UIImagePickerController()
     
+    @IBOutlet weak var lblNick: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         picker.delegate = self
+        guard let memberNick = UserDefaults.standard.string(forKey: Constant.loginNick) else {return}
         
+        lblNick.text = "\(memberNick) 님"
+        lblNick.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         
         if let sheetPresentationController = sheetPresentationController {
                 sheetPresentationController.detents = [.medium()]

@@ -21,6 +21,7 @@ class CommunityViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         //segue 연결
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
     
     @IBAction func checkLogin(_ sender: Any) {

@@ -10,6 +10,7 @@ import Alamofire
 
 class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     
+    let loginService = LoginService.shared
     @IBOutlet weak var fixedImage: UIImageView!
     @IBOutlet weak var lblBoard: UILabel!
     
@@ -58,10 +59,10 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     //글쓰기 버튼
     lazy var floatingButton: UIButton = {
         let button = UIButton(type: .system)
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 45, weight: .light)
         let image = UIImage(systemName: "pencil.circle.fill", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
-        button.tintColor = .systemPink
+        button.tintColor = UIColor(named: "MaginotLineColor")
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("", for: .normal)
@@ -86,15 +87,27 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         collectionView.reloadData()
     }
     @objc func ClickedBtn(sender: UIButton!){
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as? CommunityPostWriteViewController,
-              let board = self.board else { return }
-        vc.boardNumber = board.boardNum
-//        vc.beforeVC = self
-//
         
+        //로그인 유무 확인하기
+        if !loginService.checkLogin(){
+            loginModalView()
+        } else {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as? CommunityPostWriteViewController,
+                  let board = self.board else { return }
+            vc.boardNumber = board.boardNum
+    //        vc.beforeVC = self
+    //
+            
+            present(vc, animated: true, completion: nil)
+            print("버튼 클릭")
+        }
+    }
+    // 로그아웃 상태시 로그인 모달 띄우기
+    func loginModalView(){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "LoginModalViewController") as! LoginModalViewController
         present(vc, animated: true, completion: nil)
-        print("버튼 클릭")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
