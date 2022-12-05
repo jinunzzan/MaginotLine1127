@@ -407,6 +407,9 @@
                                         <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="commentSubmit:" destination="YVM-jl-j5c" eventType="touchUpInside" id="9K3-Jt-LPc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F9a-e4-3Al"/>
@@ -891,7 +894,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zf6-1j-Bxu">
-                                <rect key="frame" x="40" y="167.66666666666666" width="313" height="439.66666666666674"/>
+                                <rect key="frame" x="40" y="167.66666666666663" width="313" height="432"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2J-Fm-eaA">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="19.333333333333332"/>
@@ -906,6 +909,10 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="nameTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEnd" id="5M9-sF-0o8"/>
+                                            <action selector="nameTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEndOnExit" id="kCC-0a-8TN"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxK-qC-rNC">
                                         <rect key="frame" x="0.0" y="71.333333333333343" width="313" height="19.333333333333329"/>
@@ -913,104 +920,114 @@
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="OgP-qn-K8H">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yb5-Xi-IjY">
                                         <rect key="frame" x="0.0" y="96.666666666666657" width="313" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="5P0-wv-65E"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="idTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEnd" id="bJl-01-rEW"/>
-                                            <action selector="idTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingChanged" id="oc4-oK-4jm"/>
-                                        </connections>
-                                    </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PM-s1-KdD">
-                                        <rect key="frame" x="0.0" y="142.66666666666666" width="313" height="22"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중복된 아이디입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlm-Dl-u2d">
-                                                <rect key="frame" x="0.0" y="0.0" width="243" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zu-rG-m9e">
-                                                <rect key="frame" x="243" y="0.0" width="70" height="22"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="OgP-qn-K8H">
+                                                <rect key="frame" x="0.0" y="0.0" width="238" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="Nln-dD-jAf"/>
-                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="22" id="gwQ-iF-LGb"/>
+                                                    <constraint firstAttribute="height" constant="40" id="5P0-wv-65E"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="idTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingChanged" id="2co-he-EMb"/>
+                                                    <action selector="idTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEnd" id="ILH-fe-YCl"/>
+                                                    <action selector="idTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEndOnExit" id="bL7-9Z-30t"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktW-tQ-nCb">
+                                                <rect key="frame" x="238" y="0.0" width="75" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="HCN-4a-5an"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
-                                                    <backgroundConfiguration key="background" strokeWidth="1">
+                                                    <backgroundConfiguration key="background" strokeWidth="2">
                                                         <color key="backgroundColor" red="0.88235294819999999" green="0.36470589040000001" blue="0.38431376220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </backgroundConfiguration>
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="중복확인">
                                                             <attributes>
-                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                                <font key="NSOriginalFont" size="12" name="AppleSDGothicNeo-Regular"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PM-s1-KdD">
+                                        <rect key="frame" x="0.0" y="142.66666666666666" width="313" height="14.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중복된 아이디입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dlm-Dl-u2d">
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEX-UP-KD5">
-                                        <rect key="frame" x="0.0" y="170.66666666666666" width="313" height="19.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="163.00000000000003" width="313" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="gI4-Q3-9Er">
-                                        <rect key="frame" x="0.0" y="196.00000000000003" width="313" height="40"/>
+                                        <rect key="frame" x="0.0" y="188.33333333333334" width="313" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="gAp-Z1-IaC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="passwordTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingChanged" id="Nlj-xY-CJw"/>
                                             <action selector="passwordTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEnd" id="cJy-fc-5Z9"/>
+                                            <action selector="passwordTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEndOnExit" id="qb8-Oh-LLU"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중복된 아이디입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLs-9m-oCI">
-                                        <rect key="frame" x="0.0" y="242.00000000000003" width="313" height="14.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="234.33333333333334" width="313" height="14.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk9-iB-i65">
-                                        <rect key="frame" x="0.0" y="262.33333333333337" width="313" height="19.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="254.66666666666666" width="313" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="SJq-0b-EdV">
-                                        <rect key="frame" x="0.0" y="287.66666666666663" width="313" height="40"/>
+                                        <rect key="frame" x="0.0" y="280" width="313" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="U0M-fY-I3g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="passwordCheckTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEnd" id="B1p-Jl-fGT"/>
+                                            <action selector="passwordCheckTextFieldTyped:" destination="SbX-ss-KMo" eventType="editingDidEndOnExit" id="yB1-aU-sOA"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호가 일치하지 않습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-9z-dUt">
-                                        <rect key="frame" x="0.0" y="333.66666666666663" width="313" height="14.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="326" width="313" height="14.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvx-Ix-6mf">
-                                        <rect key="frame" x="0.0" y="354" width="313" height="19.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="346.33333333333337" width="313" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="MDb-d4-Ucx">
-                                        <rect key="frame" x="0.0" y="379.33333333333337" width="313" height="40"/>
+                                        <rect key="frame" x="0.0" y="371.66666666666674" width="313" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="I8Y-TX-uha"/>
                                         </constraints>
@@ -1018,7 +1035,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중복된 닉네임입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glq-g7-IZG">
-                                        <rect key="frame" x="0.0" y="425.33333333333337" width="313" height="14.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="417.66666666666674" width="313" height="14.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.25645517559999997" green="0.26423996589999998" blue="0.29542064969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -1047,7 +1064,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WhP-t6-O9d"/>
                     <connections>
-                        <outlet property="btnSameIdCheck" destination="6zu-rG-m9e" id="zOu-46-Vfk"/>
+                        <outlet property="btnSameIdCheck" destination="ktW-tQ-nCb" id="K0W-d5-gsA"/>
                         <outlet property="lblIdCheck" destination="Dlm-Dl-u2d" id="DiF-VK-yOd"/>
                         <outlet property="lblNickCheck" destination="Glq-g7-IZG" id="qKa-dA-1tg"/>
                         <outlet property="lblPw" destination="bLs-9m-oCI" id="GOV-RB-U2C"/>

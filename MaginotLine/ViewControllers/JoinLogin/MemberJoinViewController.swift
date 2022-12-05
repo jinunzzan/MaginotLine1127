@@ -31,9 +31,8 @@ class MemberJoinViewController: UIViewController {
         for label in defaultHiddenCollection {
             label.isHidden = true
             label.textColor = .red
-            btnSameIdCheck.isHidden = true
         }
-        btnSameIdCheck.titleLabel?.font = UIFont(name: "중복확인", size: 12)
+       
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -48,11 +47,20 @@ class MemberJoinViewController: UIViewController {
         
         
     }
+    
+    
+    @IBAction func nameTextFieldTyped(_ sender: UITextField) {
+        //입력버튼 누르면 다음 tf 로 넘어가기
+        if tfUserName.isFirstResponder{
+            tfUserId.becomeFirstResponder()
+        }
+    }
+    
+    
 
  //아이디 조건
     @IBAction func idTextFieldTyped(_ sender: UITextField) {
         lblIdCheck.isHidden = false
-        btnSameIdCheck.isHidden = false
          
          let userWord = tfUserId.text?.lowercased()
          tfUserId.text = userWord
@@ -72,12 +80,18 @@ class MemberJoinViewController: UIViewController {
              if isVaildPattern {
                  lblIdCheck.text = "조건에 맞는 아이디"
                  lblIdCheck.isHidden = true
+                
              } else {
                  lblIdCheck.text = "소문자, 숫자, 빼기(-), 밑줄(_)만 사용할 수 있습니다."
              }
          default:
              lblIdCheck.text = "아이디는 12글자 이하이어야 합니다."
+             //입력버튼 누르면 다음 tf로 넘어가기
+             if tfUserId.isFirstResponder{
+                 tfUserPw.becomeFirstResponder()
+             }
          }
+       
     }
     //비밀번호 조건
     
@@ -91,6 +105,7 @@ class MemberJoinViewController: UIViewController {
         switch count {
         case 0:
             lblPw.text = "비밀번호는 필수입력 정보입니다."
+            
         case 1..<minCount:
             lblPw.text = "비밀번호는 8글자 이상이어야 합니다."
         case minCount...maxCount:
@@ -99,14 +114,34 @@ class MemberJoinViewController: UIViewController {
             if isVaildPattern {
                 lblPw.text = "조건에 맞는 비밀번호"
                 lblPw.isHidden = true
+                
             } else {
                 lblPw.text = "영어알파벳, 숫자, 특수문자가 필수로 입력되어야 합니다."
             }
         default:
             lblPw.text = "비밀번호는 16글자 이하이어야 합니다."
+            //입력버튼 누르면 다음 tf로 넘어가기
+            if tfUserPw.isFirstResponder{
+                tfUserPwCheck.becomeFirstResponder()
+            }
         }
+       
     }
     
+    
+    @IBAction func passwordCheckTextFieldTyped(_ sender: UITextField) {
+        lblPwCheck.isHidden = false
+        var checkPw = tfUserPwCheck.text
+        if checkPw == tfUserPw.text {
+            lblPwCheck.text = ""
+        }else {
+            lblPwCheck.text = "비밀번호가 일치하지 않습니다."
+            lblPwCheck.textColor = .red
+        }
+        if tfUserPwCheck.isFirstResponder{
+            tfUserNick.becomeFirstResponder()
+        }
+    }
     
     func joinMessage(){
         let alert = UIAlertController(title: "회원가입 완료", message: "회원가입을 축하드립니다!\n함께 지각러를 탈출해보아요.", preferredStyle: UIAlertController.Style.alert)

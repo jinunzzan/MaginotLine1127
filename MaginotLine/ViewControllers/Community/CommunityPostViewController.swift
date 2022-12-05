@@ -98,11 +98,20 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // 글 입력 할 때 보드 넘버 보내기
         let vc = segue.destination as? CommunityPostWriteViewController
         let indexPaths = collectionView.indexPathsForSelectedItems
         guard let indexPath = indexPaths?.first else { return }
         let community = communities[indexPath.row]
         vc?.board = community
+        
+        // 댓글 입력창에 글 내용 보내기
+        let vc2 = segue.destination as? PostAndCommentViewController
+        let boardPost = boardPosts[indexPath.row]
+        vc2?.boardPost = [boardPost]
+        
+
     }
     
     

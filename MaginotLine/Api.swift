@@ -43,9 +43,9 @@ struct BoardPost:Codable{
     var board_num: Int?
     var post_content: String
     var member_nick: String
-//    var post_date: String
+    var post_date: String
 //    var post_update: Int
-//    var post_num: Int
+    var post_num: Int
 }
 
 //커뮤니티 댓글
