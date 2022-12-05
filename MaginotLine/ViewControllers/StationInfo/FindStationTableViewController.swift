@@ -14,6 +14,8 @@ class FindStationTableViewController: UITableViewController {
     var line: Station?
     var stations: [Station] = []
     
+    var allStation = [""]
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -23,6 +25,9 @@ class FindStationTableViewController: UITableViewController {
         searchBar.delegate = self
         
         requestFirstStation(from: "")
+        
+      
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
     
     // MARK: - Table view data source
@@ -42,11 +47,17 @@ class FindStationTableViewController: UITableViewController {
         return stations.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath)
         let station = stations[indexPath.row]
+        
+        let stationCD = station.station_cd
+//        print("//////////stationCD: \(stationCD)//////////")
+        allStation.append(stationCD)
+       let allStationSorted = allStation.sorted(by: >)
+        print("///////////allStationSorted: \(allStationSorted)///////////")
         
         let lblName = cell.viewWithTag(2) as? UILabel
         lblName?.text = station.station_nm
@@ -104,6 +115,7 @@ class FindStationTableViewController: UITableViewController {
         
         return cell
     }
+    
 }
 
 
@@ -183,6 +195,7 @@ extension FindStationTableViewController{
                 self?.stations = data.stations
                 //테이블뷰 다시 그리기
                 self?.tableView.reloadData()
+             
             }
             .resume()
     }
@@ -196,8 +209,12 @@ extension FindStationTableViewController{
                 
                 //데이터 받기
                 self?.stations = data.stations
+                
                 //테이블뷰 다시 그리기
                 self?.tableView.reloadData()
+                
+                print(self?.stations)
+               
             }
             .resume()
     }
