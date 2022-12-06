@@ -13,8 +13,13 @@ class FindStationTableViewController: UITableViewController {
 
     var line: Station?
     var stations: [Station] = []
+
     
-    var allStation = [""]
+    var allStation:Array<Station> = []
+    //호선오름차순
+    var newArr:Array<Station> = []
+    //호선 + 역명오름차순
+    var nameArr:Array<Station> = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -25,7 +30,7 @@ class FindStationTableViewController: UITableViewController {
         searchBar.delegate = self
         
         requestFirstStation(from: "")
-        
+//        self.tableView.keyboardDismissMode = .onDrag
       
         self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
@@ -52,21 +57,30 @@ class FindStationTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath)
         let station = stations[indexPath.row]
+        allStation.append(station)
         
-        let stationCD = station.station_cd
+        //호선 오름차순
+        newArr = allStation.sorted(by: {$0.line_num < $1.line_num})
+        print("호선내림차순정렬하면? \(newArr)")
+        //호선 + 이름 오름차순
+        nameArr = newArr.sorted(by: {$0.station_nm < $1.station_nm})
+        print("역명 내림차훈정렬하면? \(nameArr)")
+//
+        let nameArrTable = nameArr[indexPath.row]
+//        let stationCD = station.station_cd
 //        print("//////////stationCD: \(stationCD)//////////")
-        allStation.append(stationCD)
-       let allStationSorted = allStation.sorted(by: >)
-        print("///////////allStationSorted: \(allStationSorted)///////////")
+//        allStation.append(stationCD)
+//       let allStationSorted = allStation.sorted(by: >)
+//        print("///////////allStationSorted: \(allStationSorted)///////////")
         
         let lblName = cell.viewWithTag(2) as? UILabel
-        lblName?.text = station.station_nm
+        lblName?.text = nameArrTable.station_nm
         
         let lblLine = cell.viewWithTag(3) as? UILabel
-        lblLine?.text = "\(station.line_num)"
+        lblLine?.text = "\(nameArrTable.line_num)"
         
         let lineImage = cell.viewWithTag(1) as? UIImageView
-        switch station.line_num {
+        switch nameArrTable.line_num {
         case "01호선":
             lineImage?.image = UIImage(named: "1line")
         case "02호선" :
@@ -171,10 +185,12 @@ extension FindStationTableViewController: UISearchBarDelegate{
         //검색어 변경하면 테이블 다시 그려주어야함
         tableView.reloadData()
         tableView.isHidden = false
+        
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         tableView.isHidden = true
         stations = []
+        nameArr = []
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty{
@@ -187,7 +203,7 @@ extension FindStationTableViewController: UISearchBarDelegate{
 // REST API
 extension FindStationTableViewController{
     func requestStation(from station: String){
-        let url = "http://openAPI.seoul.go.kr:8088/43464a45546c6f7634344855706b57/json/SearchInfoBySubwayNameService/1/5/\(station)"
+        let url = "http://openAPI.seoul.go.kr:8088/43464a45546c6f7634344855706b57/json/SearchInfoBySubwayNameService/1/767/\(station)"
         AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
             .responseDecodable(of: StationRespose.self){[weak self] response in guard case .success(let data) = response.result else {return}
                 
