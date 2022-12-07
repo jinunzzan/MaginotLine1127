@@ -17,9 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-hg-P3m">
-                                <rect key="frame" x="96" y="79" width="201" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hd-hg-P3m">
+                                <rect key="frame" x="96.666666666666686" y="79" width="200" height="200"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="GOI-3k-r3m"/>
                                     <constraint firstAttribute="height" constant="200" id="NM0-hv-oiP"/>
                                 </constraints>
                             </imageView>
@@ -77,13 +78,12 @@
                         <viewLayoutGuide key="safeArea" id="ZPr-ES-pg1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2hd-hg-P3m" firstAttribute="centerX" secondItem="MJu-Bg-2xo" secondAttribute="centerX" id="A6Z-Qd-qZm"/>
                             <constraint firstItem="h2j-tE-ZwO" firstAttribute="centerX" secondItem="MJu-Bg-2xo" secondAttribute="centerX" id="BtG-Fw-wZD"/>
-                            <constraint firstItem="2hd-hg-P3m" firstAttribute="leading" secondItem="ZPr-ES-pg1" secondAttribute="leading" constant="96" id="FGO-kO-ppX"/>
                             <constraint firstItem="2hd-hg-P3m" firstAttribute="top" secondItem="ZPr-ES-pg1" secondAttribute="top" constant="20" id="IRF-KC-Y0n"/>
                             <constraint firstItem="ZPr-ES-pg1" firstAttribute="trailing" secondItem="h2j-tE-ZwO" secondAttribute="trailing" constant="30" id="RdJ-VN-mqw"/>
                             <constraint firstItem="h2j-tE-ZwO" firstAttribute="leading" secondItem="ZPr-ES-pg1" secondAttribute="leading" constant="30" id="TcR-OC-vrY"/>
                             <constraint firstItem="h2j-tE-ZwO" firstAttribute="top" secondItem="2hd-hg-P3m" secondAttribute="bottom" constant="10" id="gHf-ri-qQT"/>
-                            <constraint firstItem="2hd-hg-P3m" firstAttribute="centerX" secondItem="MJu-Bg-2xo" secondAttribute="centerX" id="gyH-Pc-Mlq"/>
                         </constraints>
                     </view>
                     <connections>

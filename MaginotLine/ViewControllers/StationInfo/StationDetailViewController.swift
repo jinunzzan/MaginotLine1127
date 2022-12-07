@@ -9,10 +9,11 @@ import UIKit
 import Alamofire
 class StationDetailViewController: UIViewController {
     
+    var sFacilities:[SFacilities]=[]
     
     @IBOutlet weak var lineBackground: UIImageView!
     @IBOutlet weak var stationName: UILabel!
-//첫번째열차
+    //첫번째열차
     @IBOutlet weak var lblDir1: UILabel!
     @IBOutlet weak var lblArvMsg1: UILabel!
     
@@ -31,10 +32,10 @@ class StationDetailViewController: UIViewController {
     
     var stations:Station?
     var realtimeArrivalList: [RealTimeArrivalList] = []
-//    var realtimeArrivalList1: [RealTimeArrivalList] = []
+    //    var realtimeArrivalList1: [RealTimeArrivalList] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         guard let station = stations else {return}
         
         switch station.line_num {
@@ -92,10 +93,9 @@ class StationDetailViewController: UIViewController {
     
 }
 
+// 실시간 지하철 역 뽑아내기
 extension StationDetailViewController{
-  func requestStationNameis(from station: String){
-        
-        
+    func requestStationNameis(from station: String){
         guard let station = stations else {return}
         
         let url = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(station.station_nm)"
@@ -106,9 +106,9 @@ extension StationDetailViewController{
                 
                 let count = self!.realtimeArrivalList.count
                 if  count > 0 {
-                        //첫번째열차
-                        self?.lblDir1.text = (self?.realtimeArrivalList[0].bstatnNm ?? "") + " 행"
-                        self?.lblArvMsg1.text = self?.realtimeArrivalList[0].arvlMsg2
+                    //첫번째열차
+                    self?.lblDir1.text = (self?.realtimeArrivalList[0].bstatnNm ?? "") + " 행"
+                    self?.lblArvMsg1.text = self?.realtimeArrivalList[0].arvlMsg2
                     if count>1{
                         //두번째열차
                         self?.lblDir2.text = (self?.realtimeArrivalList[1].bstatnNm ?? "") + " 행"
@@ -125,11 +125,24 @@ extension StationDetailViewController{
                         self?.lblArvMsg4.text = self?.realtimeArrivalList[3].arvlMsg2
                     }
                 }
-                
-                
-                
                 print(self?.realtimeArrivalList ?? "")
             }
+    }
+}
+
+// 지하철 편의시설 정보
+extension StationDetailViewController{
+    func requestSFacilities(form station_name: String){
+        guard let station = stations else {return}
+    
         
+        let url = "http://openapi.seoul.go.kr:8088/4172664e4e6c6f763130366746444b72/json/TbSeoulmetroStConve/1/5/\(station.station_nm)"
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: TbSeoulmetroStConve.self){[weak self] response in guard
+                case .success (_) = response.result else {return}
+                
+              
+                print(self?.sFacilities ?? "")
+            }
     }
 }

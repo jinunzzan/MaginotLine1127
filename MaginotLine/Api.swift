@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-let url = "http://192.168.0.31:3000"
+let url = "http://172.30.1.74:3000"
 let joinUrl = url + "/member_info"
 
 let postUrl = url + "/board_post"
