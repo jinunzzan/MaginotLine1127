@@ -28,6 +28,7 @@
 		594C75CD29359F0400FA292D /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75CC29359F0400FA292D /* CommunityView.swift */; };
 		594C75D429361E8D00FA292D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D329361E8D00FA292D /* LoginService.swift */; };
 		594C75D629361F4000FA292D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D529361F4000FA292D /* Constants.swift */; };
+		5956D28E2940771700A0B89E /* StationAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956D28D2940771700A0B89E /* StationAddress.swift */; };
 		59BDC547293A208600B6F1FC /* PostAndCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */; };
 		59BDC54B293E08A200B6F1FC /* FindStationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC54A293E08A200B6F1FC /* FindStationTableViewController.swift */; };
 		59BDC54E293F6DC200B6F1FC /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC54D293F6DC200B6F1FC /* StationDetailViewController.swift */; };
@@ -46,7 +47,6 @@
 		59305778291CB3B10082EEF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5930577B291CB3B10082EEF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5930577D291CB3B10082EEF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		593B6F2B29389A0C00C83C7C /* MaginotLine.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MaginotLine.entitlements; sourceTree = "<group>"; };
 		593B6F2D2939D4D200C83C7C /* AfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterLoginViewController.swift; sourceTree = "<group>"; };
 		593F7E8F292719A400BA4BB9 /* StationArrivalDataRespose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationArrivalDataRespose.swift; sourceTree = "<group>"; };
 		593F7E9829275E3900BA4BB9 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
@@ -61,6 +61,7 @@
 		594C75CC29359F0400FA292D /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		594C75D329361E8D00FA292D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		594C75D529361F4000FA292D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5956D28D2940771700A0B89E /* StationAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAddress.swift; sourceTree = "<group>"; };
 		59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAndCommentViewController.swift; sourceTree = "<group>"; };
 		59BDC54A293E08A200B6F1FC /* FindStationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStationTableViewController.swift; sourceTree = "<group>"; };
 		59BDC54D293F6DC200B6F1FC /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		5930576E291CB3B00082EEF8 /* MaginotLine */ = {
 			isa = PBXGroup;
 			children = (
-				593B6F2B29389A0C00C83C7C /* MaginotLine.entitlements */,
 				594C75D229361E7700FA292D /* Modules */,
 				593F7EA0292B27C100BA4BB9 /* ViewControllers */,
 				593F7EA1292B27EF00BA4BB9 /* Models */,
@@ -141,6 +141,7 @@
 		593F7EA1292B27EF00BA4BB9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5956D28F2940773700A0B89E /* StationInfo */,
 				593F7E9829275E3900BA4BB9 /* TimeTable.swift */,
 				593F7EA2292B449B00BA4BB9 /* StationList.swift */,
 				593F7E8F292719A400BA4BB9 /* StationArrivalDataRespose.swift */,
@@ -179,6 +180,14 @@
 				594C75D529361F4000FA292D /* Constants.swift */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		5956D28F2940773700A0B89E /* StationInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5956D28D2940771700A0B89E /* StationAddress.swift */,
+			);
+			path = StationInfo;
 			sourceTree = "<group>";
 		};
 		59BDC54C293E08AB00B6F1FC /* StationInfo */ = {
@@ -271,6 +280,7 @@
 				594C75C92934932100FA292D /* Api.swift in Sources */,
 				593F7E90292719A400BA4BB9 /* StationArrivalDataRespose.swift in Sources */,
 				B84D633C2931F4DA0001FC69 /* CommunityPostViewController.swift in Sources */,
+				5956D28E2940771700A0B89E /* StationAddress.swift in Sources */,
 				593F7EA9292B66B400BA4BB9 /* MaginotListTableViewController.swift in Sources */,
 				59305774291CB3B00082EEF8 /* ViewController.swift in Sources */,
 				59305770291CB3B00082EEF8 /* AppDelegate.swift in Sources */,

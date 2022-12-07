@@ -14,13 +14,6 @@ class FindStationTableViewController: UITableViewController {
     var line: Station?
     var stations: [Station] = []
 
-    
-    var allStation:Array<Station> = []
-//    //호선오름차순
-//    var newArr:Array<Station> = []
-//    //호선 + 역명오름차순
-//    var nameArr:Array<Station> = []
-//
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -30,8 +23,7 @@ class FindStationTableViewController: UITableViewController {
         searchBar.delegate = self
         
         requestFirstStation(from: "")
-//        self.tableView.keyboardDismissMode = .onDrag
-      
+
         self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
     
@@ -73,8 +65,6 @@ class FindStationTableViewController: UITableViewController {
         
         let lblName = cell.viewWithTag(2) as? UILabel
         lblName?.text = station.station_nm
-
-        
         let lblLine = cell.viewWithTag(3) as? UILabel
         lblLine?.text = "\(station.line_num)"
         
@@ -136,6 +126,7 @@ class FindStationTableViewController: UITableViewController {
         vc?.stations = indexPath
         
         
+        
     }
     
 }
@@ -190,8 +181,8 @@ extension FindStationTableViewController{
                 
                 //테이블뷰 다시 그리기
                 self?.tableView.reloadData()
-                
-                print(self?.stations)
+//
+//                print(self?.stations)
                
             }
             .resume()

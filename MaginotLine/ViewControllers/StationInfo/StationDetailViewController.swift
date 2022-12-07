@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class StationDetailViewController: UIViewController {
     
     @IBOutlet weak var lineBackground: UIImageView!
-    
     @IBOutlet weak var stationName: UILabel!
+    
     var stations:Station?
     
     override func viewDidLoad() {
