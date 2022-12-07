@@ -30,6 +30,7 @@
 		594C75D629361F4000FA292D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594C75D529361F4000FA292D /* Constants.swift */; };
 		59BDC547293A208600B6F1FC /* PostAndCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */; };
 		59BDC54B293E08A200B6F1FC /* FindStationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC54A293E08A200B6F1FC /* FindStationTableViewController.swift */; };
+		59BDC54E293F6DC200B6F1FC /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDC54D293F6DC200B6F1FC /* StationDetailViewController.swift */; };
 		B80166822930C3E0008781F8 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166812930C3E0008781F8 /* CommunityViewController.swift */; };
 		B80166842930CC8A008781F8 /* NewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166832930CC8A008781F8 /* NewMemberViewController.swift */; };
 		B80166862930CCB6008781F8 /* MemberJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80166852930CCB6008781F8 /* MemberJoinViewController.swift */; };
@@ -62,6 +63,7 @@
 		594C75D529361F4000FA292D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		59BDC546293A208600B6F1FC /* PostAndCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAndCommentViewController.swift; sourceTree = "<group>"; };
 		59BDC54A293E08A200B6F1FC /* FindStationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStationTableViewController.swift; sourceTree = "<group>"; };
+		59BDC54D293F6DC200B6F1FC /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
 		B80166812930C3E0008781F8 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B80166832930CC8A008781F8 /* NewMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemberViewController.swift; sourceTree = "<group>"; };
 		B80166852930CCB6008781F8 /* MemberJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberJoinViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				59BDC54A293E08A200B6F1FC /* FindStationTableViewController.swift */,
+				59BDC54D293F6DC200B6F1FC /* StationDetailViewController.swift */,
 			);
 			path = StationInfo;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59BDC54E293F6DC200B6F1FC /* StationDetailViewController.swift in Sources */,
 				594C75C92934932100FA292D /* Api.swift in Sources */,
 				593F7E90292719A400BA4BB9 /* StationArrivalDataRespose.swift in Sources */,
 				B84D633C2931F4DA0001FC69 /* CommunityPostViewController.swift in Sources */,

@@ -16,11 +16,11 @@ class FindStationTableViewController: UITableViewController {
 
     
     var allStation:Array<Station> = []
-    //호선오름차순
-    var newArr:Array<Station> = []
-    //호선 + 역명오름차순
-    var nameArr:Array<Station> = []
-    
+//    //호선오름차순
+//    var newArr:Array<Station> = []
+//    //호선 + 역명오름차순
+//    var nameArr:Array<Station> = []
+//
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -53,20 +53,18 @@ class FindStationTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath)
         let station = stations[indexPath.row]
-        allStation.append(station)
+//        allStation.append(station)
         
-        //호선 오름차순
-        newArr = allStation.sorted(by: {$0.line_num < $1.line_num})
-        print("호선내림차순정렬하면? \(newArr)")
-        //호선 + 이름 오름차순
-        nameArr = newArr.sorted(by: {$0.station_nm < $1.station_nm})
-        print("역명 내림차훈정렬하면? \(nameArr)")
-//
-        let nameArrTable = nameArr[indexPath.row]
+//        //호선 오름차순
+//        newArr = allStation.sorted(by: {$0.line_num < $1.line_num})
+//        print("호선내림차순정렬하면? \(newArr)")
+//        //호선 + 이름 오름차순
+//        nameArr = newArr.sorted(by: {$0.station_nm < $1.station_nm})
+//        print("역명 내림차훈정렬하면? \(nameArr)")
+////
+//        let nameArrTable = nameArr[indexPath.row]
 //        let stationCD = station.station_cd
 //        print("//////////stationCD: \(stationCD)//////////")
 //        allStation.append(stationCD)
@@ -74,13 +72,14 @@ class FindStationTableViewController: UITableViewController {
 //        print("///////////allStationSorted: \(allStationSorted)///////////")
         
         let lblName = cell.viewWithTag(2) as? UILabel
-        lblName?.text = nameArrTable.station_nm
+        lblName?.text = station.station_nm
+
         
         let lblLine = cell.viewWithTag(3) as? UILabel
-        lblLine?.text = "\(nameArrTable.line_num)"
+        lblLine?.text = "\(station.line_num)"
         
         let lineImage = cell.viewWithTag(1) as? UIImageView
-        switch nameArrTable.line_num {
+        switch station.line_num {
         case "01호선":
             lineImage?.image = UIImage(named: "1line")
         case "02호선" :
@@ -129,54 +128,17 @@ class FindStationTableViewController: UITableViewController {
         
         return cell
     }
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPaths = tableView.indexPathForSelectedRow else {return}
+        let vc = segue.destination as? StationDetailViewController
+        var indexPath = stations[indexPaths.row]
+        vc?.stations = indexPath
+        
+        
+    }
     
 }
-
-
-/*
- // Override to support conditional editing of the table view.
- override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
- // Return false if you do not want the specified item to be editable.
- return true
- }
- */
-
-/*
- // Override to support editing the table view.
- override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
- if editingStyle == .delete {
- // Delete the row from the data source
- tableView.deleteRows(at: [indexPath], with: .fade)
- } else if editingStyle == .insert {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
- 
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
- // Return false if you do not want the item to be re-orderable.
- return true
- }
- */
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
 
 //searchBar delegate
 extension FindStationTableViewController: UISearchBarDelegate{
@@ -190,7 +152,7 @@ extension FindStationTableViewController: UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         tableView.isHidden = true
         stations = []
-        nameArr = []
+//        nameArr = []
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty{
