@@ -104,22 +104,27 @@ extension StationDetailViewController{
                 case .success (let data) = response.result else {return}
                 self?.realtimeArrivalList = data.realtimeArrivalList
                 
-               //첫번째열차
-                self?.lblDir1.text = (self?.realtimeArrivalList[0].bstatnNm ?? "") + " 행"
-                self?.lblArvMsg1.text = self?.realtimeArrivalList[0].arvlMsg2
-                
-                //두번째열차
-                self?.lblDir2.text = (self?.realtimeArrivalList[1].bstatnNm ?? "") + " 행"
-                self?.lblArvMsg2.text = self?.realtimeArrivalList[1].arvlMsg2
-                
-                //세번째열차
-                self?.lblDir3.text = (self?.realtimeArrivalList[2].bstatnNm ?? "") + " 행"
-                self?.lblArvMsg3.text = self?.realtimeArrivalList[2].arvlMsg2
-                
-                //네번째열차
-                self?.lblDir4.text = (self?.realtimeArrivalList[3].bstatnNm ?? "") + " 행"
-                self?.lblArvMsg4.text = self?.realtimeArrivalList[3].arvlMsg2
-                
+                let count = self!.realtimeArrivalList.count
+                if  count > 0 {
+                        //첫번째열차
+                        self?.lblDir1.text = (self?.realtimeArrivalList[0].bstatnNm ?? "") + " 행"
+                        self?.lblArvMsg1.text = self?.realtimeArrivalList[0].arvlMsg2
+                    if count>1{
+                        //두번째열차
+                        self?.lblDir2.text = (self?.realtimeArrivalList[1].bstatnNm ?? "") + " 행"
+                        self?.lblArvMsg2.text = self?.realtimeArrivalList[1].arvlMsg2
+                    }
+                    if count>2{
+                        //세번째열차
+                        self?.lblDir3.text = (self?.realtimeArrivalList[2].bstatnNm ?? "") + " 행"
+                        self?.lblArvMsg3.text = self?.realtimeArrivalList[2].arvlMsg2
+                    }
+                    if count>3{
+                        //네번째열차
+                        self?.lblDir4.text = (self?.realtimeArrivalList[3].bstatnNm ?? "") + " 행"
+                        self?.lblArvMsg4.text = self?.realtimeArrivalList[3].arvlMsg2
+                    }
+                }
                 
                 
                 
