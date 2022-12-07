@@ -7,17 +7,34 @@
 
 import UIKit
 import Alamofire
-
 class StationDetailViewController: UIViewController {
+    
     
     @IBOutlet weak var lineBackground: UIImageView!
     @IBOutlet weak var stationName: UILabel!
+//첫번째열차
+    @IBOutlet weak var lblDir1: UILabel!
+    @IBOutlet weak var lblArvMsg1: UILabel!
+    
+    //두번째열차
+    @IBOutlet weak var lblDir2: UILabel!
+    @IBOutlet weak var lblArvMsg2: UILabel!
+    
+    //세번째열차
+    @IBOutlet weak var lblDir3: UILabel!
+    @IBOutlet weak var lblArvMsg3: UILabel!
+    
+    //네번째 열차
+    @IBOutlet weak var lblDir4: UILabel!
+    @IBOutlet weak var lblArvMsg4: UILabel!
+    
     
     var stations:Station?
-    
+    var realtimeArrivalList: [RealTimeArrivalList] = []
+//    var realtimeArrivalList1: [RealTimeArrivalList] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         guard let station = stations else {return}
         
         switch station.line_num {
@@ -67,17 +84,47 @@ class StationDetailViewController: UIViewController {
             lineBackground.image = UIImage(named: "2detail")
         }
         stationName.text = station.station_nm
+        guard let selectStation = stationName.text else {fatalError()}
+        requestStationNameis(from: selectStation)
+        print(realtimeArrivalList)
+        
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension StationDetailViewController{
+  func requestStationNameis(from station: String){
+        
+        
+        guard let station = stations else {return}
+        
+        let url = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(station.station_nm)"
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationArrivalDataResponse.self){[weak self] response in guard
+                case .success (let data) = response.result else {return}
+                self?.realtimeArrivalList = data.realtimeArrivalList
+                
+               //첫번째열차
+                self?.lblDir1.text = (self?.realtimeArrivalList[0].bstatnNm ?? "") + " 행"
+                self?.lblArvMsg1.text = self?.realtimeArrivalList[0].arvlMsg2
+                
+                //두번째열차
+                self?.lblDir2.text = (self?.realtimeArrivalList[1].bstatnNm ?? "") + " 행"
+                self?.lblArvMsg2.text = self?.realtimeArrivalList[1].arvlMsg2
+                
+                //세번째열차
+                self?.lblDir3.text = (self?.realtimeArrivalList[2].bstatnNm ?? "") + " 행"
+                self?.lblArvMsg3.text = self?.realtimeArrivalList[2].arvlMsg2
+                
+                //네번째열차
+                self?.lblDir4.text = (self?.realtimeArrivalList[3].bstatnNm ?? "") + " 행"
+                self?.lblArvMsg4.text = self?.realtimeArrivalList[3].arvlMsg2
+                
+                
+                
+                
+                print(self?.realtimeArrivalList ?? "")
+            }
+        
     }
-    */
-
 }
