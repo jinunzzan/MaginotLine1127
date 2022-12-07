@@ -9,7 +9,10 @@ import UIKit
 import Alamofire
 class StationDetailViewController: UIViewController {
     
-    var sFacilities:[SFacilities]=[]
+    var sFacilities:[Row] = []
+    var stations:Station?
+    var realtimeArrivalList: [RealTimeArrivalList] = []
+    
     
     @IBOutlet weak var lineBackground: UIImageView!
     @IBOutlet weak var stationName: UILabel!
@@ -30,9 +33,17 @@ class StationDetailViewController: UIViewController {
     @IBOutlet weak var lblArvMsg4: UILabel!
     
     
-    var stations:Station?
-    var realtimeArrivalList: [RealTimeArrivalList] = []
-    //    var realtimeArrivalList1: [RealTimeArrivalList] = []
+    // 편의시설 유무
+    @IBOutlet weak var lblEl: UILabel!
+    @IBOutlet weak var lblWl: UILabel!
+    @IBOutlet weak var lblParking: UILabel!
+    @IBOutlet weak var lblCim: UILabel!
+    @IBOutlet weak var lblExchange: UILabel!
+    @IBOutlet weak var lblTrain: UILabel!
+    @IBOutlet weak var lblCulture: UILabel!
+    @IBOutlet weak var lblFdroom: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,8 +97,10 @@ class StationDetailViewController: UIViewController {
         }
         stationName.text = station.station_nm
         guard let selectStation = stationName.text else {fatalError()}
+        
         requestStationNameis(from: selectStation)
-        print(realtimeArrivalList)
+        requestSFacilities(from: selectStation)
+        
         
     }
     
@@ -98,7 +111,7 @@ extension StationDetailViewController{
     func requestStationNameis(from station: String){
         guard let station = stations else {return}
         
-        let url = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(station.station_nm)"
+        let url = "http://swopenapi.seoul.go.kr/api/subway/4172664e4e6c6f763130366746444b72/json/realtimeStationArrival/0/5/\(station.station_nm)"
         AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
             .responseDecodable(of: StationArrivalDataResponse.self){[weak self] response in guard
                 case .success (let data) = response.result else {return}
@@ -132,17 +145,32 @@ extension StationDetailViewController{
 
 // 지하철 편의시설 정보
 extension StationDetailViewController{
-    func requestSFacilities(form station_name: String){
+    func requestSFacilities(from station: String){
         guard let station = stations else {return}
-    
         
-        let url = "http://openapi.seoul.go.kr:8088/4172664e4e6c6f763130366746444b72/json/TbSeoulmetroStConve/1/5/\(station.station_nm)"
-        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
-            .responseDecodable(of: TbSeoulmetroStConve.self){[weak self] response in guard
-                case .success (_) = response.result else {return}
-                
-              
-                print(self?.sFacilities ?? "")
+        let url = "http://openapi.seoul.go.kr:8088/4172664e4e6c6f763130366746444b72/json/TbSeoulmetroStConve/1/10/\(station.station_nm)"
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "", method: .get
+        ).responseDecodable(of: Welcome.self) { response in
+            guard let tb = response.value?.tbSeoulmetroStConve else { return }
+
+            for i in 0...tb.row.count-1 {
+                if station.station_nm == tb.row[i].stationName
+                && station.line_num == tb.row[i].line{
+                    self.sFacilities.append(tb.row[i])
+                    self.lblEl.text = tb.row[i].el
+                    self.lblWl.text = tb.row[i].wl
+                    self.lblParking.text = tb.row[i].parking
+                    self.lblCim.text = tb.row[i].cim
+                    self.lblExchange.text = tb.row[i].exchange
+                    self.lblTrain.text = tb.row[i].train
+                    self.lblCulture.text = tb.row[i].culture
+                    self.lblFdroom.text = tb.row[i].fdroom
+                }
             }
+            print("result:\(self.sFacilities)")
+        }
+     
     }
+    
 }
+

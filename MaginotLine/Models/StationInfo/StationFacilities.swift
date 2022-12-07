@@ -7,20 +7,42 @@
 
 import Foundation
 
-struct TbSeoulmetroStConve:Codable {
-    let row: [SFacilities] 
+struct Welcome: Codable {
+    let tbSeoulmetroStConve: TBSeoulmetroStConve
+
+    enum CodingKeys: String, CodingKey {
+        case tbSeoulmetroStConve = "TbSeoulmetroStConve"
+    }
 }
-struct SFacilities:Codable{
-    let STATION_NAME:String
-    let LINE:String
-    let EL:String
-    let WL:String
-    let PARKING:String
-    let BICYCLE:String
-    let CIM:String
-    let EXCHANGE:String
-    let TRAIN:String
-    let CULTURE:String
-    let PLACE:String
-    let FDROOM:String
+
+// MARK: - TBSeoulmetroStConve
+struct TBSeoulmetroStConve: Codable {
+    let row: [Row]
+
+    enum CodingKeys: String, CodingKey {
+        case row
+    }
+}
+
+// MARK: - Row
+struct Row: Codable {
+    let stationID, stationName, line, el: String
+    let wl, parking, cim: String
+    let exchange, train, culture, place: String
+    let fdroom: String
+
+    enum CodingKeys: String, CodingKey {
+        case stationID = "STATION_ID"
+        case stationName = "STATION_NAME"
+        case line = "LINE"
+        case el = "EL"
+        case wl = "WL"
+        case parking = "PARKING"
+        case cim = "CIM"
+        case exchange = "EXCHANGE"
+        case train = "TRAIN"
+        case culture = "CULTURE"
+        case place = "PLACE"
+        case fdroom = "FDROOM"
+    }
 }
