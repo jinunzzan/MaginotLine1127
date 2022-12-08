@@ -26,6 +26,7 @@ class FindStationTableViewController: UITableViewController {
 
         self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
+   
     
     // MARK: - Table view data source
     
@@ -146,10 +147,11 @@ extension FindStationTableViewController: UISearchBarDelegate{
 //        nameArr = []
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty{
-            return
-        }
-        requestStation(from: searchText)
+//        if searchText.isEmpty{
+//            requestFirstStation(from: "")
+//        } else {
+            requestStation(from: searchText)
+//    /]/
     }
 }
 

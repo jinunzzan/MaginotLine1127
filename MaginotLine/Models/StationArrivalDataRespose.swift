@@ -63,5 +63,6 @@ struct RealTimeArrivalList: Codable {
     let arvlMsg2: String // 전역 진입, 전역 도착 등 remaintime
     let arvlMsg3: String // 종합운동장 도착, 12분후 등 curruntstation
     let bstatnNm: String //종착 지하철역명
+    let subwayId: String    //지하철 호선 id
   
 }

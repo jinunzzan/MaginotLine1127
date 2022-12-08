@@ -14,6 +14,7 @@ class IdPwInsertViewController: UIViewController {
     
     @IBOutlet weak var tfUserPw: UITextField!
     
+    var beforeVC:UIViewController?
     
     let loginSerivce = LoginService.shared
     
@@ -21,6 +22,8 @@ class IdPwInsertViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+
         
         if let sheetPresentationController = sheetPresentationController {
             sheetPresentationController.detents = [.medium()]
@@ -28,14 +31,11 @@ class IdPwInsertViewController: UIViewController {
         
     }
     
-    
+   
     @IBAction func loginSubmitBtn(_ sender: Any) {
         login()
         getList(id: tfUserid.text ?? "")
-        
-        
         self.dismiss(animated: true)
-        
     }
     
     func login(){
@@ -71,7 +71,9 @@ class IdPwInsertViewController: UIViewController {
                     
                     print("유저디폴트에 저장한 userId: \(String(describing: UserDefaults.standard.string(forKey: "loginSuccessId")))" )
                     
+                    self.beforeVC?.dismiss(animated: true)
                     print("idPwInsertViewController")
+                    
                 }
             case .failure(let error):
                 print("응답 코드 :", response.response?.statusCode ?? 0)

@@ -37,10 +37,18 @@ class LoginModalViewController: UIViewController {
         profileImage.layer.shadowRadius = 5
         profileImage.layer.shadowColor = UIColor.gray.cgColor
         
+        
         if loginService.checkLogin() == true {
             self.dismiss(animated: true)
         }
+        
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as? IdPwInsertViewController
+        vc?.beforeVC = self
+    }
+    
+    
     
 }
 

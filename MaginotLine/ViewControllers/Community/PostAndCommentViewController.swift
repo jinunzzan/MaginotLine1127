@@ -22,9 +22,10 @@ class PostAndCommentViewController: UIViewController {
     @IBOutlet weak var lblPost: UILabel!
     
     @IBOutlet weak var tfComment: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // 프로토콜
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,6 +38,26 @@ class PostAndCommentViewController: UIViewController {
         // 댓글 표시하기
         getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
         
+        //키보드 올라가기 내려가기
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    //키보드 올라가기 내려가기
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        //        self.view.frame.origin.y = -330 // Move view 150 points upward
+        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            self.view.frame.origin.y = -keyboardHeight
+        }
+    }
+    
+    @objc
+    func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0 // Move view to original position
     }
     
     @IBAction func commentSubmit(_ sender: Any) {
@@ -45,10 +66,12 @@ class PostAndCommentViewController: UIViewController {
             loginModalView()
         } else {
             commentWrite()
-            getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
+//            getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
         }
         // 댓글 단 후 tf 초기화
         tfComment.text = ""
+        tfComment.resignFirstResponder()
+        
     }
     // 로그아웃 상태시 로그인 모달 띄우기
     func loginModalView(){
@@ -70,7 +93,7 @@ class PostAndCommentViewController: UIViewController {
         }
     }
     
-     // 댓글 쓰기
+    // 댓글 쓰기
     func commentWrite(){
         guard let commentContent = tfComment.text, !commentContent.isEmpty else { return }
         guard let memberNick = UserDefaults.standard.string(forKey: Constant.loginNick) else {return}
@@ -91,6 +114,12 @@ class PostAndCommentViewController: UIViewController {
             case.success(let res):
                 do {
                     print("댓글달기", String(data:res, encoding: .utf8) ?? "")
+//                    self.getPostCommentList(post_num: self.boardPost.first?.post_num ?? 1)
+                    let newComment = PostComment(post_num: self.boardPost.first?.post_num, member_nick: memberNick, comment_content: commentContent)
+                    self.postComment.append(newComment)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             case.failure(let err):
                 print("응답코드 : ", response.response?.statusCode ?? 0)
@@ -99,13 +128,13 @@ class PostAndCommentViewController: UIViewController {
             }
         }
     }
-
+    
 }
 extension PostAndCommentViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postComment.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
         let comment = postComment[indexPath.row]
@@ -117,6 +146,6 @@ extension PostAndCommentViewController: UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-
-
+    
+    
 }

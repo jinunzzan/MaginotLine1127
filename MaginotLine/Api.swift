@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-let url = "http://172.30.1.74:3000"
+let url = "http://192.168.35.227:3000"
 let joinUrl = url + "/member_info"
 
 let postUrl = url + "/board_post"
@@ -55,6 +55,8 @@ struct PostComment:Codable{
     var member_nick:String?
     var comment_content:String?
 }
+
+
 
 // 변수 사용하기 위해 전역변수에도 생성
 let id = UserDefaults.standard.string(forKey: "loginSuccessId")

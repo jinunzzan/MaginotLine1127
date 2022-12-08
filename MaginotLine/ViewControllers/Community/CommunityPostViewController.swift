@@ -96,8 +96,7 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
             guard let vc = sb.instantiateViewController(withIdentifier: "CommunityPostWriteViewController") as? CommunityPostWriteViewController,
                   let board = self.board else { return }
             vc.boardNumber = board.boardNum
-    //        vc.beforeVC = self
-    //
+            vc.beforeVC = self
             
             present(vc, animated: true, completion: nil)
             print("버튼 클릭")
@@ -126,8 +125,7 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         
 
     }
-    
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         //현재 스크롤의 위치 (최상단 = 0)
@@ -178,9 +176,9 @@ extension CommunityPostViewController:UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
+
+
 extension CommunityPostViewController:UICollectionViewDelegate {
     
 }

@@ -10,6 +10,8 @@ import Alamofire
 
 class MemberJoinViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var tfUserName: UITextField!
     @IBOutlet weak var tfUserId: UITextField!
     @IBOutlet weak var tfUserPw: UITextField!
@@ -191,7 +193,6 @@ extension MemberJoinViewController {
                     self.tfUserPwCheck.text = ""
                     
                     self.joinMessage()
-                    
                     
                 }
             case .failure(let err):
