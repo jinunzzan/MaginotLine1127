@@ -1321,14 +1321,7 @@
                             <outlet property="delegate" destination="mbQ-eF-sqR" id="VeJ-iW-pXF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="마지노선 목록" style="editor" id="F6s-aa-Waf">
-                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="mRg-WG-scB">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addFavorite:" destination="mbQ-eF-sqR" id="PjB-te-Dfj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="마지노선 목록" style="editor" id="F6s-aa-Waf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHe-gY-bhl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1904,7 +1897,6 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="83"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
