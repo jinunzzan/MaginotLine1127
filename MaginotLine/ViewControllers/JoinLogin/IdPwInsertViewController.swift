@@ -17,6 +17,7 @@ class IdPwInsertViewController: UIViewController {
     var beforeVC:UIViewController?
     
     let loginSerivce = LoginService.shared
+    let loginService = LoginService.shared
     
     @IBOutlet weak var tfUserid: UITextField!
     
@@ -32,10 +33,26 @@ class IdPwInsertViewController: UIViewController {
     }
     
    
+    func failLoginMessage(){
+        let alert = UIAlertController(title: "로그인 실패", message: "로그인에 실패하였습니다.\n아이디와 비밀번호를 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+    
+            self.dismiss(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        
+        present(alert, animated: true)
+    }
     @IBAction func loginSubmitBtn(_ sender: Any) {
-        login()
-        getList(id: tfUserid.text ?? "")
-        self.dismiss(animated: true)
+        if !loginSerivce.checkLogin(){
+            failLoginMessage()
+        } else {
+            login()
+            getList(id: tfUserid.text ?? "")
+            self.dismiss(animated: true)
+        }
+       
     }
     
     func login(){
@@ -78,6 +95,8 @@ class IdPwInsertViewController: UIViewController {
             case .failure(let error):
                 print("응답 코드 :", response.response?.statusCode ?? 0)
                 print("에러",error.localizedDescription)
+                
+                self.loginService.logout()
                 break
             }
             
