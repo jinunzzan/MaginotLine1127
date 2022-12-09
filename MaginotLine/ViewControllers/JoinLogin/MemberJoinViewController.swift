@@ -36,6 +36,9 @@ class MemberJoinViewController: UIViewController {
         }
        
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     @IBAction func cancleBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -145,7 +148,12 @@ class MemberJoinViewController: UIViewController {
     func joinMessage(){
         let alert = UIAlertController(title: "회원가입 완료", message: "회원가입을 축하드립니다!\n함께 지각러를 탈출해보아요.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-    
+            //
+            /////
+            //            let sb = UIStoryboard(name: "Main", bundle: nil)
+            //            let vc = sb.instantiateViewController(withIdentifier: "LoginModalViewController") as! LoginModalViewController
+            //
+            //            self.present(vc, animated: true, completion: nil)
             self.dismiss(animated: true)
         }
         alert.addAction(okAction)

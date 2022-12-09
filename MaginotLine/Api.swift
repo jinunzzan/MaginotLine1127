@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-let url = "http://172.30.1.44:3000"
+let url = "https://maginotionline.azurewebsites.net"
 let joinUrl = url + "/member_info"
 
 let postUrl = url + "/board_post"
