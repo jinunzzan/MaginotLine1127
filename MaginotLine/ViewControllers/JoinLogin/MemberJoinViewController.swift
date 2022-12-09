@@ -36,9 +36,6 @@ class MemberJoinViewController: UIViewController {
         }
        
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
     
     @IBAction func cancleBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

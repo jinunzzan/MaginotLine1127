@@ -26,7 +26,9 @@ class FindStationTableViewController: UITableViewController {
 
         self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
-   
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     // MARK: - Table view data source
     
@@ -134,6 +136,7 @@ class FindStationTableViewController: UITableViewController {
 
 //searchBar delegate
 extension FindStationTableViewController: UISearchBarDelegate{
+
     func searchBarTextDidBeginEditing (_ searchBar: UISearchBar) {
         
         //검색어 변경하면 테이블 다시 그려주어야함
@@ -144,14 +147,12 @@ extension FindStationTableViewController: UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         tableView.isHidden = true
         stations = []
-//        nameArr = []
+        
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText.isEmpty{
-//            requestFirstStation(from: "")
-//        } else {
+
             requestStation(from: searchText)
-//    /]/
     }
 }
 
