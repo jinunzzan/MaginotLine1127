@@ -22,8 +22,8 @@ class IdPwInsertViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-
+        //
+        
         
         if let sheetPresentationController = sheetPresentationController {
             sheetPresentationController.detents = [.medium()]
@@ -31,7 +31,7 @@ class IdPwInsertViewController: UIViewController {
         
     }
     
-   
+    
     @IBAction func loginSubmitBtn(_ sender: Any) {
         login()
         getList(id: tfUserid.text ?? "")

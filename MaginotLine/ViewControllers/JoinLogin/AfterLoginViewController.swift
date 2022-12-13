@@ -24,7 +24,7 @@ class AfterLoginViewController: UIViewController, UIImagePickerControllerDelegat
         lblNick.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         
         if let sheetPresentationController = sheetPresentationController {
-                sheetPresentationController.detents = [.medium()]
+            sheetPresentationController.detents = [.medium()]
         }
         profileImage.image = UIImage(named: "profile")
         profileImage.backgroundColor = .white
@@ -63,15 +63,6 @@ class AfterLoginViewController: UIViewController, UIImagePickerControllerDelegat
         self.dismiss(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func openLibrary() {
         picker.sourceType = .photoLibrary
         present(picker, animated: true, completion: nil)
@@ -84,6 +75,6 @@ class AfterLoginViewController: UIViewController, UIImagePickerControllerDelegat
             print("Camera not Available")
         }
     }
-
+    
 }
 

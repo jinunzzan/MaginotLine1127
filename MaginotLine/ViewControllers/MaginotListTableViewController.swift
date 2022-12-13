@@ -97,13 +97,6 @@ class MaginotListTableViewController: UITableViewController {
             guard let result = response.value else {return}
             self.timeTable = result.SearchSTNTimeTableByIDService.row
             print(self.timeTable)
-            //            self.tableView.reloadData()
-            
-            //            print("============")
-            //            print("출발시간: \(self.timeTable[0].leftTime)")
-            //            print("출발역: \(self.timeTable[0].station_nm)")
-            //
-            //            print("============")
             
             // 데이터 포맷 변환
             let formatter = DateFormatter()
@@ -155,7 +148,7 @@ class MaginotListTableViewController: UITableViewController {
             var patchDatePlus = "\(patchDate) \(strMagino)"
             print("이건 오늘날짜 + 마지노선 타임 입니다\(patchDatePlus)")
             
-           
+            
             
             print("//////////////////////////////")
             print(self.timeTable)
@@ -166,7 +159,7 @@ class MaginotListTableViewController: UITableViewController {
         }
         
     }
-
+    
     
     func searchSubwayPath(_ sid:String,_ eid:String){
         let str = "https://api.odsay.com/v1/api/subwayPath"
@@ -200,7 +193,7 @@ class MaginotListTableViewController: UITableViewController {
                 print("전체 운행소요시간\(self.route?.globalTravelTime)")
             }
             
-             
+            
             let strWayCode = "\(result.result.driveInfoSet.driveInfo[0].wayCode)"
             print("wayCode:\(strWayCode)")
             self.searchTimeTable(start_index: 1, end_index: 500, station_cd: self.strStartStationCD, week_tag: self.strToday, inout_tag: strWayCode )
@@ -250,54 +243,8 @@ class MaginotListTableViewController: UITableViewController {
         
         let lblEndTime = cell.viewWithTag(4) as? UILabel
         lblEndTime?.text = formatter.string(from: dateLeftTime1)
-       
+        
         return cell
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

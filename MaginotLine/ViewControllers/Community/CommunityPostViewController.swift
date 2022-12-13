@@ -123,9 +123,9 @@ class CommunityPostViewController: UIViewController, UIScrollViewDelegate {
         let boardPost = boardPosts[indexPath.row]
         vc2?.boardPost = [boardPost]
         
-
+        
     }
-
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         //현재 스크롤의 위치 (최상단 = 0)

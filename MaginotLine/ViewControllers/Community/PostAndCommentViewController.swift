@@ -66,7 +66,7 @@ class PostAndCommentViewController: UIViewController {
             loginModalView()
         } else {
             commentWrite()
-//            getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
+            //            getPostCommentList(post_num: boardPost.first?.post_num ?? 1)
         }
         // 댓글 단 후 tf 초기화
         tfComment.text = ""
@@ -114,7 +114,7 @@ class PostAndCommentViewController: UIViewController {
             case.success(let res):
                 do {
                     print("댓글달기", String(data:res, encoding: .utf8) ?? "")
-//                    self.getPostCommentList(post_num: self.boardPost.first?.post_num ?? 1)
+                    //                    self.getPostCommentList(post_num: self.boardPost.first?.post_num ?? 1)
                     let newComment = PostComment(post_num: self.boardPost.first?.post_num, member_nick: memberNick, comment_content: commentContent)
                     self.postComment.append(newComment)
                     DispatchQueue.main.async {

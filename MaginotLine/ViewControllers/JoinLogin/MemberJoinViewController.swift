@@ -34,7 +34,7 @@ class MemberJoinViewController: UIViewController {
             label.isHidden = true
             label.textColor = .red
         }
-       
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -47,7 +47,6 @@ class MemberJoinViewController: UIViewController {
         join()
         // 회원가입 성공시 화면은 로그인 화면으로 이동한다.
         
-        
     }
     
     
@@ -59,41 +58,41 @@ class MemberJoinViewController: UIViewController {
     }
     
     
-
- //아이디 조건
+    
+    //아이디 조건
     @IBAction func idTextFieldTyped(_ sender: UITextField) {
         lblIdCheck.isHidden = false
-         
-         let userWord = tfUserId.text?.lowercased()
-         tfUserId.text = userWord
-         
-         let minCount = 5
-         let maxCount = 12
-         let count = userWord!.count
-
-         switch count {
-         case 0:
-             lblIdCheck.text = "아이디는 필수입력 정보입니다."
-         case 1..<minCount:
-             lblIdCheck.text = "아이디는 5글자 이상이어야 합니다."
-         case minCount...maxCount:
-             let idPattern = "^[a-z0-9-_]{\(minCount),\(maxCount)}$"
-             let isVaildPattern = (userWord!.range(of: idPattern, options: .regularExpression) != nil)
-             if isVaildPattern {
-                 lblIdCheck.text = "조건에 맞는 아이디"
-                 lblIdCheck.isHidden = true
+        
+        let userWord = tfUserId.text?.lowercased()
+        tfUserId.text = userWord
+        
+        let minCount = 5
+        let maxCount = 12
+        let count = userWord!.count
+        
+        switch count {
+        case 0:
+            lblIdCheck.text = "아이디는 필수입력 정보입니다."
+        case 1..<minCount:
+            lblIdCheck.text = "아이디는 5글자 이상이어야 합니다."
+        case minCount...maxCount:
+            let idPattern = "^[a-z0-9-_]{\(minCount),\(maxCount)}$"
+            let isVaildPattern = (userWord!.range(of: idPattern, options: .regularExpression) != nil)
+            if isVaildPattern {
+                lblIdCheck.text = "조건에 맞는 아이디"
+                lblIdCheck.isHidden = true
                 
-             } else {
-                 lblIdCheck.text = "소문자, 숫자, 빼기(-), 밑줄(_)만 사용할 수 있습니다."
-             }
-         default:
-             lblIdCheck.text = "아이디는 12글자 이하이어야 합니다."
-             //입력버튼 누르면 다음 tf로 넘어가기
-             if tfUserId.isFirstResponder{
-                 tfUserPw.becomeFirstResponder()
-             }
-         }
-       
+            } else {
+                lblIdCheck.text = "소문자, 숫자, 빼기(-), 밑줄(_)만 사용할 수 있습니다."
+            }
+        default:
+            lblIdCheck.text = "아이디는 12글자 이하이어야 합니다."
+            //입력버튼 누르면 다음 tf로 넘어가기
+            if tfUserId.isFirstResponder{
+                tfUserPw.becomeFirstResponder()
+            }
+        }
+        
     }
     //비밀번호 조건
     
@@ -103,7 +102,7 @@ class MemberJoinViewController: UIViewController {
         let minCount = 8
         let maxCount = 16
         let count = tfUserPw.text!.count
-
+        
         switch count {
         case 0:
             lblPw.text = "비밀번호는 필수입력 정보입니다."
@@ -127,7 +126,7 @@ class MemberJoinViewController: UIViewController {
                 tfUserPwCheck.becomeFirstResponder()
             }
         }
-       
+        
     }
     
     
@@ -148,12 +147,6 @@ class MemberJoinViewController: UIViewController {
     func joinMessage(){
         let alert = UIAlertController(title: "회원가입 완료", message: "회원가입을 축하드립니다!\n함께 지각러를 탈출해보아요.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            //
-            /////
-            //            let sb = UIStoryboard(name: "Main", bundle: nil)
-            //            let vc = sb.instantiateViewController(withIdentifier: "LoginModalViewController") as! LoginModalViewController
-            //
-            //            self.present(vc, animated: true, completion: nil)
             self.dismiss(animated: true)
         }
         alert.addAction(okAction)

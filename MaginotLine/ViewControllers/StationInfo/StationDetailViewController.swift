@@ -152,10 +152,10 @@ extension StationDetailViewController{
         AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "", method: .get
         ).responseDecodable(of: Welcome.self) { response in
             guard let tb = response.value?.tbSeoulmetroStConve else { return }
-
+            
             for i in 0...tb.row.count-1 {
                 if station.station_nm == tb.row[i].stationName
-                && station.line_num == tb.row[i].line{
+                    && station.line_num == tb.row[i].line{
                     self.sFacilities.append(tb.row[i])
                     self.lblEl.text = tb.row[i].el
                     self.lblWl.text = tb.row[i].wl
@@ -169,7 +169,7 @@ extension StationDetailViewController{
             }
             print("result:\(self.sFacilities)")
         }
-     
+        
     }
     
 }

@@ -44,7 +44,7 @@ struct BoardPost:Codable{
     var post_content: String
     var member_nick: String
     var post_date: String
-//    var post_update: Int
+    //    var post_update: Int
     var post_num: Int
 }
 

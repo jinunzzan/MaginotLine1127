@@ -46,7 +46,7 @@ struct Time:Codable{
         case express_yn = "EXPRESS_YN"
         case branch_line = "BRANCH_LINE"
         
-       
+        
     }
     
     init(from decoder: Decoder) throws {

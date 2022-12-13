@@ -47,7 +47,7 @@ class CommunityPostWriteViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func postBtn(_ sender: Any) {
         post()
-//        beforeVC?.refresh()
+        //        beforeVC?.refresh()
         print("boardNum: \(boardNumber) memberNick: \(memberInfo?.member_nick)")
         self.dismiss(animated: true) {
             self.beforeVC?.getBoardPostList(boardNum: self.board?.boardNum ?? 1)

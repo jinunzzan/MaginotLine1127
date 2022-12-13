@@ -12,7 +12,7 @@ class LoginModalViewController: UIViewController {
     
     let loginService = LoginService.shared
     
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var joinProfileBtn: UIButton!

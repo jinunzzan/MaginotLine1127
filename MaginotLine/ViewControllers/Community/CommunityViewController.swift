@@ -27,8 +27,7 @@ class CommunityViewController: UIViewController {
     @IBAction func checkLogin(_ sender: Any) {
         if loginService.checkLogin() == true {
             guard let afterLoginVC = self.storyboard?.instantiateViewController(identifier: "AfterLoginViewController") as? AfterLoginViewController else { return }
-            //            afterLoginVC.modalTransitionStyle = .coverVertical
-            //            afterLoginVC.modalPresentationStyle = .fullScreen
+            
             if let sheet = afterLoginVC.sheetPresentationController {
                 sheet.detents = [.medium()]
                 sheet.prefersGrabberVisible = true
@@ -36,8 +35,7 @@ class CommunityViewController: UIViewController {
             self.present(afterLoginVC, animated: true, completion:nil)
         } else {
             guard let beforeLoginVC = self.storyboard?.instantiateViewController(identifier: "LoginModalViewController") as? LoginModalViewController else { return }
-            //            beforeLoginVC.modalTransitionStyle = .coverVertical
-            //            beforeLoginVC.modalPresentationStyle = .fullScreen
+            
             if let sheet = beforeLoginVC.sheetPresentationController {
                 sheet.detents = [.medium()]
                 sheet.prefersGrabberVisible = true

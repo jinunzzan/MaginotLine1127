@@ -9,7 +9,7 @@ import Foundation
 
 struct Welcome: Codable {
     let tbSeoulmetroStConve: TBSeoulmetroStConve
-
+    
     enum CodingKeys: String, CodingKey {
         case tbSeoulmetroStConve = "TbSeoulmetroStConve"
     }
@@ -18,7 +18,7 @@ struct Welcome: Codable {
 // MARK: - TBSeoulmetroStConve
 struct TBSeoulmetroStConve: Codable {
     let row: [Row]
-
+    
     enum CodingKeys: String, CodingKey {
         case row
     }
@@ -30,7 +30,7 @@ struct Row: Codable {
     let wl, parking, cim: String
     let exchange, train, culture, place: String
     let fdroom: String
-
+    
     enum CodingKeys: String, CodingKey {
         case stationID = "STATION_ID"
         case stationName = "STATION_NAME"

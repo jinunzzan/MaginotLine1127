@@ -21,7 +21,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var timeBtn: UIButton!
     
     var stations: Station?
-  
+    
     
     // 시간표 검색을 위해 필요한 정보
     var selectMaginotTime = "" // 도착시간
@@ -32,7 +32,7 @@ class ViewController: UIViewController{
     
     var today = "" // 날짜 코드
     
-   
+    
     
     let pickerListHour = ["03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
     let pickerListMinute = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
@@ -40,21 +40,21 @@ class ViewController: UIViewController{
     let dateCode = ["1","2","3"] //WEEK_TAG
     
     
-//    var pickerView = UIPickerView()
+    //    var pickerView = UIPickerView()
     var typeValue = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtnTitle()
-
+        
         self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
-
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         if !loginService.checkLogin() {
             lblHiMessage.text = "안녕하세요, "
         } else {
-//            guard let id = loginService.getID() else { return }
+            //            guard let id = loginService.getID() else { return }
             guard let memberNick = UserDefaults.standard.string(forKey: Constant.loginNick) else {return}
             lblHiMessage.text = "안녕하세요, \(memberNick) 님"
             lblHiMessage.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -110,7 +110,7 @@ class ViewController: UIViewController{
         pickerFrame.selectRow(0, inComponent: 2, animated: false)
         
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
-//
+        //
         // 확인 선택시 값 저장, 버튼에 출력
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { action in
             let hour = self.pickerListHour[pickerFrame.selectedRow(inComponent: 0)]
@@ -137,13 +137,13 @@ class ViewController: UIViewController{
         setBtnTitle()
     }
     func setBtnTitle(){
-           startBtn.setTitle("출발역을 선택하세요", for: .normal)
-           startBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .medium)
-           endBtn.setTitle("도착역을 선택하세요", for: .normal)
-           endBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .medium)
-           timeBtn.setTitle(":", for: .normal)
-           timeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .medium)
-       }
+        startBtn.setTitle("출발역을 선택하세요", for: .normal)
+        startBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .medium)
+        endBtn.setTitle("도착역을 선택하세요", for: .normal)
+        endBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .medium)
+        timeBtn.setTitle(":", for: .normal)
+        timeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 19, weight: .medium)
+    }
 }
 
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -178,7 +178,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         } else if component == 1 {
             print("\(pickerListMinute[row]) 분")
         } else {
-           print(pickerListDate[row]) 
+            print(pickerListDate[row]) 
         }
     }
 }

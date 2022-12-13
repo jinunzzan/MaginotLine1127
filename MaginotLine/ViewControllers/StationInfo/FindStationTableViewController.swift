@@ -10,10 +10,10 @@ import Alamofire
 
 class FindStationTableViewController: UITableViewController {
     
-
+    
     var line: Station?
     var stations: [Station] = []
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class FindStationTableViewController: UITableViewController {
         searchBar.delegate = self
         
         requestFirstStation(from: "")
-
+        
         self.navigationController?.navigationBar.tintColor = UIColor(named: "MaginotLineColor")
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -33,7 +33,7 @@ class FindStationTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         
         if stations.count > 0 {
             return 1
@@ -43,28 +43,14 @@ class FindStationTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return stations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell", for: indexPath)
         let station = stations[indexPath.row]
-//        allStation.append(station)
         
-//        //호선 오름차순
-//        newArr = allStation.sorted(by: {$0.line_num < $1.line_num})
-//        print("호선내림차순정렬하면? \(newArr)")
-//        //호선 + 이름 오름차순
-//        nameArr = newArr.sorted(by: {$0.station_nm < $1.station_nm})
-//        print("역명 내림차훈정렬하면? \(nameArr)")
-////
-//        let nameArrTable = nameArr[indexPath.row]
-//        let stationCD = station.station_cd
-//        print("//////////stationCD: \(stationCD)//////////")
-//        allStation.append(stationCD)
-//       let allStationSorted = allStation.sorted(by: >)
-//        print("///////////allStationSorted: \(allStationSorted)///////////")
         
         let lblName = cell.viewWithTag(2) as? UILabel
         lblName?.text = station.station_nm
@@ -121,7 +107,7 @@ class FindStationTableViewController: UITableViewController {
         
         return cell
     }
- 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPaths = tableView.indexPathForSelectedRow else {return}
         let vc = segue.destination as? StationDetailViewController
@@ -136,7 +122,7 @@ class FindStationTableViewController: UITableViewController {
 
 //searchBar delegate
 extension FindStationTableViewController: UISearchBarDelegate{
-
+    
     func searchBarTextDidBeginEditing (_ searchBar: UISearchBar) {
         
         //검색어 변경하면 테이블 다시 그려주어야함
@@ -151,8 +137,8 @@ extension FindStationTableViewController: UISearchBarDelegate{
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-            requestStation(from: searchText)
+        
+        requestStation(from: searchText)
     }
 }
 
@@ -167,7 +153,7 @@ extension FindStationTableViewController{
                 self?.stations = data.stations
                 //테이블뷰 다시 그리기
                 self?.tableView.reloadData()
-             
+                
             }
             .resume()
     }
@@ -184,9 +170,9 @@ extension FindStationTableViewController{
                 
                 //테이블뷰 다시 그리기
                 self?.tableView.reloadData()
-//
-//                print(self?.stations)
-               
+                //
+                //                print(self?.stations)
+                
             }
             .resume()
     }
