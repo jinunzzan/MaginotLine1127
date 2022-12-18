@@ -17,18 +17,18 @@ final class LoginService: NSObject {
         super.init()
     }
     
+    //아이디 가져오기
     func getID() -> String? {
         id = UserDefaults.standard.string(forKey: Constant.loginID)
-        
         return id
     }
-    
+    //유저 닉네임 저장
     func useNick(nick: String){
         UserDefaults.standard.set(nick, forKey: Constant.loginNick)
     }
     
     
-    
+    //로그인 확인
     func checkLogin() -> Bool {
         if UserDefaults.standard.string(forKey: Constant.loginID) != nil {
             return true
@@ -36,11 +36,11 @@ final class LoginService: NSObject {
             return false
         }
     }
-    
+    //로그인 아이디 저장
     func login(id: String) {
         UserDefaults.standard.set(id, forKey: Constant.loginID)
     }
-    
+    //로그아웃
     func logout() {
         UserDefaults.standard.removeObject(forKey: Constant.loginID)
         UserDefaults.standard.removeObject(forKey: Constant.loginNick)
