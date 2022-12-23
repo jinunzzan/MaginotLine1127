@@ -1103,6 +1103,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WhP-t6-O9d"/>
                     <connections>
+                        <outlet property="btnJoin" destination="cwx-n4-XEP" id="3Z0-1m-imx"/>
                         <outlet property="btnSameIdCheck" destination="ktW-tQ-nCb" id="K0W-d5-gsA"/>
                         <outlet property="lblIdCheck" destination="Dlm-Dl-u2d" id="DiF-VK-yOd"/>
                         <outlet property="lblNickCheck" destination="Glq-g7-IZG" id="qKa-dA-1tg"/>

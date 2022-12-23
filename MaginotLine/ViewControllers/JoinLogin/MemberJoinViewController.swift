@@ -19,6 +19,8 @@ class MemberJoinViewController: UIViewController {
     @IBOutlet weak var tfUserNick: UITextField!
     
     @IBOutlet weak var btnSameIdCheck: UIButton!
+    @IBOutlet weak var btnJoin: UIButton!
+    
     
     @IBOutlet weak var lblPw: UILabel!
     @IBOutlet weak var lblIdCheck: UILabel!
@@ -30,10 +32,13 @@ class MemberJoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         for label in defaultHiddenCollection {
             label.isHidden = true
             label.textColor = .red
         }
+        
+        
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,6 +49,7 @@ class MemberJoinViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func joinBtn(_ sender: Any) {
+        //falseMessage()
         join()
         // 회원가입 성공시 화면은 로그인 화면으로 이동한다.
         
@@ -73,20 +79,29 @@ class MemberJoinViewController: UIViewController {
         switch count {
         case 0:
             lblIdCheck.text = "아이디는 필수입력 정보입니다."
+           
+           
         case 1..<minCount:
             lblIdCheck.text = "아이디는 5글자 이상이어야 합니다."
+          
+         
         case minCount...maxCount:
             let idPattern = "^[a-z0-9-_]{\(minCount),\(maxCount)}$"
             let isVaildPattern = (userWord!.range(of: idPattern, options: .regularExpression) != nil)
             if isVaildPattern {
                 lblIdCheck.text = "조건에 맞는 아이디"
                 lblIdCheck.isHidden = true
+               
                 
             } else {
                 lblIdCheck.text = "소문자, 숫자, 빼기(-), 밑줄(_)만 사용할 수 있습니다."
+                
+               
             }
         default:
             lblIdCheck.text = "아이디는 12글자 이하이어야 합니다."
+            
+            
             //입력버튼 누르면 다음 tf로 넘어가기
             if tfUserId.isFirstResponder{
                 tfUserPw.becomeFirstResponder()
@@ -107,23 +122,28 @@ class MemberJoinViewController: UIViewController {
         case 0:
             lblPw.text = "비밀번호는 필수입력 정보입니다."
             
+            
         case 1..<minCount:
             lblPw.text = "비밀번호는 8글자 이상이어야 합니다."
+            
         case minCount...maxCount:
             let idPattern = #"^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{\#(minCount),\#(maxCount)}$"#
             let isVaildPattern = (tfUserPw.text!.range(of: idPattern, options: .regularExpression) != nil)
             if isVaildPattern {
                 lblPw.text = "조건에 맞는 비밀번호"
                 lblPw.isHidden = true
+               
                 
             } else {
                 lblPw.text = "영어알파벳, 숫자, 특수문자가 필수로 입력되어야 합니다."
+                
             }
         default:
             lblPw.text = "비밀번호는 16글자 이하이어야 합니다."
             //입력버튼 누르면 다음 tf로 넘어가기
             if tfUserPw.isFirstResponder{
                 tfUserPwCheck.becomeFirstResponder()
+               
             }
         }
         
@@ -138,12 +158,20 @@ class MemberJoinViewController: UIViewController {
         }else {
             lblPwCheck.text = "비밀번호가 일치하지 않습니다."
             lblPwCheck.textColor = .red
+           
         }
         if tfUserPwCheck.isFirstResponder{
             tfUserNick.becomeFirstResponder()
         }
     }
     
+    func falseMessage(){
+        let alert = UIAlertController(title: "회원가입 실패", message: "입력값을 확인하세요.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+    }
     func joinMessage(){
         let alert = UIAlertController(title: "회원가입 완료", message: "회원가입을 축하드립니다!\n함께 지각러를 탈출해보아요.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
@@ -191,6 +219,7 @@ extension MemberJoinViewController {
             case .failure(let err):
                 print("응답 코드 :", response.response?.statusCode ?? 0)
                 print("에러 ::", err.localizedDescription)
+                
                 break
             }
         }
