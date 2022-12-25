@@ -49,10 +49,15 @@ class MemberJoinViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func joinBtn(_ sender: Any) {
-        //falseMessage()
-        join()
+      
+        //입력사항 오류시에 회원가입 버튼 안눌리게 하기.......어렵다...
+        if lblIdCheck !== nil {
+            disabledJoinBtn()
+        } else {
+            
+            join()
+        }
         // 회원가입 성공시 화면은 로그인 화면으로 이동한다.
-        
     }
     
     
@@ -62,8 +67,6 @@ class MemberJoinViewController: UIViewController {
             tfUserId.becomeFirstResponder()
         }
     }
-    
-    
     
     //아이디 조건
     @IBAction func idTextFieldTyped(_ sender: UITextField) {
@@ -183,6 +186,11 @@ class MemberJoinViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    //회원가입 버튼 실행되지않게
+    func disabledJoinBtn(){
+        self.btnJoin.isEnabled = false
+    }
+ 
 }
 extension MemberJoinViewController {
     func join(){
@@ -219,7 +227,6 @@ extension MemberJoinViewController {
             case .failure(let err):
                 print("응답 코드 :", response.response?.statusCode ?? 0)
                 print("에러 ::", err.localizedDescription)
-                
                 break
             }
         }
