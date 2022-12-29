@@ -1188,7 +1188,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXk-T5-hm4">
                                         <rect key="frame" x="0.0" y="130" width="353" height="50"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=":" cornerStyle="large">
+                                        <buttonConfiguration key="configuration" style="plain" title="도착시간을 설정하세요" cornerStyle="large">
                                             <backgroundConfiguration key="background" strokeWidth="1">
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <color key="strokeColor" systemColor="systemGray5Color"/>

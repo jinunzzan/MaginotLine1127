@@ -49,14 +49,13 @@ class MemberJoinViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func joinBtn(_ sender: Any) {
-      
-        //입력사항 오류시에 회원가입 버튼 안눌리게 하기.......어렵다...
-        if lblIdCheck !== nil {
-            disabledJoinBtn()
-        } else {
-            
+//
+//        //입력사항 오류시에 회원가입 버튼 안눌리게 하기.......어렵다...
+//        if lblIdCheck !== nil {
+//            disabledJoinBtn()
+//        } else {
             join()
-        }
+//        }
         // 회원가입 성공시 화면은 로그인 화면으로 이동한다.
     }
     
